@@ -94,3 +94,5 @@ codigo_python = gerar_codigo(ast)
 # Salve ou execute o código Python gerado
 with open('saida.py', 'w') as f:
     f.write(codigo_python)
+
+# testeeeeeeeeee
