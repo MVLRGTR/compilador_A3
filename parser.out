@@ -1,0 +1,107 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    OP_PONTO
+    OP_VIRGULA
+
+Grammar
+
+Rule 0     S' -> variavel
+Rule 1     variavel -> VARIAVEL
+Rule 2     literal -> NUMERO
+Rule 3     literal -> VARIAVEL
+Rule 4     literal -> TEXTONORMAL
+Rule 5     statement_list -> statement_list statement
+Rule 6     statement_list -> statement
+Rule 7     statement -> INTEIRO VARIAVEL OP_PONTO_VIRGULA
+Rule 8     statement -> REAL VARIAVEL OP_PONTO_VIRGULA
+Rule 9     statement -> TEXTO VARIAVEL OP_PONTO_VIRGULA
+Rule 10    statement -> VARIAVEL OP_IGUAL expression OP_PONTO_VIRGULA
+Rule 11    expression -> expression OP_SOMA expression
+Rule 12    expression -> expression OP_SUB expression
+Rule 13    expression -> expression OP_MULT expression
+Rule 14    expression -> expression OP_DIV expression
+Rule 15    expression -> expression MAIOR expression
+Rule 16    expression -> expression MENOR expression
+Rule 17    expression -> expression MAIORIGUAL expression
+Rule 18    expression -> expression MENORIGUAL expression
+Rule 19    expression -> expression OP_IGUALDADE expression
+Rule 20    expression -> expression OP_DIFERENTE expression
+Rule 21    expression -> LPAREN expression RPAREN
+Rule 22    expression -> NUMERO
+Rule 23    expression -> VARIAVEL
+Rule 24    statement -> SE LPAREN expression RPAREN LBRACE statement RBRACE SENAO LBRACE statement RBRACE
+Rule 25    statement -> SE LPAREN expression RPAREN LBRACE statement RBRACE
+Rule 26    statement -> ENQUANTO LPAREN expression RPAREN LBRACE statement RBRACE
+Rule 27    statement -> PARA LPAREN expression OP_PONTO_VIRGULA expression OP_PONTO_VIRGULA expression RPAREN LBRACE statement RBRACE
+Rule 28    imprimir_statement -> IMPRIMIR LPAREN literal RPAREN
+Rule 29    leia_statement -> LEIA variavel
+
+Terminals, with rules where they appear
+
+ENQUANTO             : 26
+IMPRIMIR             : 28
+INTEIRO              : 7
+LBRACE               : 24 24 25 26 27
+LEIA                 : 29
+LPAREN               : 21 24 25 26 27 28
+MAIOR                : 15
+MAIORIGUAL           : 17
+MENOR                : 16
+MENORIGUAL           : 18
+NUMERO               : 2 22
+OP_DIFERENTE         : 20
+OP_DIV               : 14
+OP_IGUAL             : 10
+OP_IGUALDADE         : 19
+OP_MULT              : 13
+OP_PONTO             : 
+OP_PONTO_VIRGULA     : 7 8 9 10 27 27
+OP_SOMA              : 11
+OP_SUB               : 12
+OP_VIRGULA           : 
+PARA                 : 27
+RBRACE               : 24 24 25 26 27
+REAL                 : 8
+RPAREN               : 21 24 25 26 27 28
+SE                   : 24 25
+SENAO                : 24
+TEXTO                : 9
+TEXTONORMAL          : 4
+VARIAVEL             : 1 3 7 8 9 10 23
+error                : 
+
+Nonterminals, with rules where they appear
+
+expression           : 10 11 11 12 12 13 13 14 14 15 15 16 16 17 17 18 18 19 19 20 20 21 24 25 26 27 27 27
+imprimir_statement   : 
+leia_statement       : 
+literal              : 28
+statement            : 5 6 24 24 25 26 27
+statement_list       : 5
+variavel             : 29 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . variavel
+    (1) variavel -> . VARIAVEL
+
+    VARIAVEL        shift and go to state 2
+
+    variavel                       shift and go to state 1
+
+state 1
+
+    (0) S' -> variavel .
+
+
+
+state 2
+
+    (1) variavel -> VARIAVEL .
+
+    $end            reduce using rule 1 (variavel -> VARIAVEL .)
+

@@ -13,9 +13,9 @@ reserved = {
 }
 
 
-tokens = ['VARIAVEL', 'NUMERO', 'TEXTONORMAL', 'OP_SUB', 'OP_SOMA', 'OP_MULT', 'OP_DIV', 'OP_IGUAL', 'OP_ASPAS',
- 'RPAREN', 'LPAREN', 'RBRACE', 'LBRACE', 'OP_VIRGULA', 'OP_PONTO_VIRGULA', 'OP_PONTO', 'OU', 'E', 'OP_DOIS_PONTOS',
- 'OP_IGUALDADE', 'OP_DIFERENTE', 'MENOR', 'MAIOR', 'MENORIGUAL', 'MAIORIGUAL'
+tokens = ['VARIAVEL', 'NUMERO', 'TEXTONORMAL', 'OP_SUB', 'OP_SOMA', 'OP_MULT', 'OP_DIV', 'OP_IGUAL',
+ 'RPAREN', 'LPAREN', 'RBRACE', 'LBRACE', 'OP_VIRGULA', 'OP_PONTO_VIRGULA', 'OP_PONTO','OP_IGUALDADE', 'OP_DIFERENTE', 
+ 'MENOR', 'MAIOR', 'MENORIGUAL', 'MAIORIGUAL'
  ]+ list(reserved.values())
 
 
@@ -28,9 +28,6 @@ t_LBRACE		= r'\{'
 
 t_OP_VIRGULA		= r'\,'
 t_OP_PONTO_VIRGULA	= r'\;'
-t_OU 			    = r'ou'
-t_E			        = r'e'
-t_OP_DOIS_PONTOS 	= r'\:'
 t_OP_PONTO       	= r'\.'
 
 t_OP_IGUALDADE	= r'=='
@@ -45,7 +42,7 @@ t_OP_SUB		= r'-'
 t_OP_MULT		= r'\*'
 t_OP_DIV		= r'/'
 t_OP_IGUAL		= r'='
-t_OP_ASPAS      = r'\"'
+
 
 '''
 t_PARA		    = r'para'
@@ -85,15 +82,3 @@ def t_error(t):
 
 
 lexer = lex.lex()
-
-teste = '''
-inteiro valor 7 + 10
-'''
-
-lexer.input(teste)
-
-while True:
-    tok = lexer.token()
-    if not tok:
-        break
-    print(tok.type, tok.value)
