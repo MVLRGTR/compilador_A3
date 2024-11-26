@@ -11,7 +11,10 @@ reserved = {
     'texto': 'TEXTO',
     'enquanto': 'ENQUANTO',
     'imprimir': 'IMPRIMIR',
-    'leia': 'LEIA'
+    'leia': 'LEIA',
+    'fimse': 'FIMSE',
+    'fimenquanto': 'FIMENQUANTO',
+    'fimpara': 'FIMPARA'
 }
 
 # Tokens

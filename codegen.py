@@ -1,60 +1,32 @@
-# codegen.py
-
 def gerar_codigo(ast):
-    """
-    Função principal que recebe a AST e gera o código Python correspondente.
-    """
-    return gerador_blocos(ast)
+    codigo = []
 
-def gerador_blocos(ast):
-    """
-    Função recursiva que gera código para um bloco de instruções.
-    """
-    if isinstance(ast, list):  # Verifica se é uma lista de instruções
-        return "\n".join(gerador_instrucao(instr) for instr in ast)
-    else:
-        return gerador_instrucao(ast)
+    # Gerando declarações de variáveis
+    for comando in ast:
+        if comando['tipo'] == 'declaracao':
+            codigo.append(f"{comando['variavel']} = {comando['valor']}")
 
-def gerador_instrucao(instrucao):
-    """
-    Função que gera código para uma única instrução.
-    """
-    if instrucao['tipo'] == 'imprimir':
-        return f"print({instrucao['valor']})"
-    
-    elif instrucao['tipo'] == 'declaracao':
-        return f"{instrucao['variavel']} = {instrucao['valor']}"
-    
-    elif instrucao['tipo'] == 'enquanto':
-        return f"while {instrucao['condicao']}:\n    {gerador_blocos(instrucao['bloco'])}"
-    
-    elif instrucao['tipo'] == 'se':
-        condicao = instrucao['condicao']
-        bloco = gerador_blocos(instrucao['bloco'])
-        codigo = f"if {condicao}:\n    {bloco}"
-        
-        if 'senao' in instrucao:
-            senao_bloco = gerador_blocos(instrucao['senao'])
-            codigo += f"\nelse:\n    {senao_bloco}"
-        
-        return codigo
-    
-    elif instrucao['tipo'] == 'leia':
-        return f"{instrucao['variavel']} = input('Digite um valor: ')"
-    
-    # Adicionar mais instruções conforme os tipos no seu parser
-    return ''
+        # Gerando comandos 'imprimir'
+        elif comando['tipo'] == 'imprimir':
+            codigo.append(f"print({comando['valor']})")
 
-# Exemplo de como a AST pode ser representada:
-ast_exemplo = [
-    {'tipo': 'imprimir', 'valor': '"Olá Mundo!"'},
-    {'tipo': 'declaracao', 'variavel': 'x', 'valor': '5'},
-    {'tipo': 'enquanto', 'condicao': 'x > 0', 'bloco': [
-        {'tipo': 'imprimir', 'valor': '"Decrementando x"'},
-        {'tipo': 'declaracao', 'variavel': 'x', 'valor': 'x - 1'}
-    ]}
-]
+        # Gerando comandos 'leia'
+        elif comando['tipo'] == 'leia':
+            codigo.append(f"{comando['variavel']} = input()")
 
-# Geração do código
-codigo_python = gerar_codigo(ast_exemplo)
-print(codigo_python)
+        # Gerando estruturas de controle 'se'
+        elif comando['tipo'] == 'se':
+            codigo.append(f"if {comando['condicao']}:")
+            codigo.append("    " + gerar_codigo(comando['bloco']))
+
+        # Gerando estrutura 'enquanto'
+        elif comando['tipo'] == 'enquanto':
+            codigo.append(f"while {comando['condicao']}:")
+            codigo.append("    " + gerar_codigo(comando['bloco']))
+
+        # Gerando estrutura 'para'
+        elif comando['tipo'] == 'para':
+            codigo.append(f"for {comando['variavel']} in range({comando['inicio']}, {comando['fim']}):")
+            codigo.append("    " + gerar_codigo(comando['bloco']))
+
+    return "\n".join(codigo)
