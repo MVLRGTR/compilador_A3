@@ -57,27 +57,28 @@ t_ENQUANTO	    = r'enquanto'
 
 def t_VARIAVEL(t):
     r'[a-zA-Z_][a-zA-Z_0-9]*'
-    if t.value in reserved:# Check for reserved words
+    if t.value in reserved:
         t.type = reserved[ t.value ]
     return t
-
 
 def t_TEXTONORMAL(t):
 	r'\"([^\\\n]|(\\.))*?\"'
 	return t
 
 def t_NUMERO(t):
-	r'\d+'
-	t.value = int(t.value)
-	return t
-
+    r'\d+(\.\d+)?'
+    if '.' in t.value:
+        t.value = float(t.value)
+    else:
+        t.value = int(t.value)
+    return t
 
 def t_novaLinha(t):
     r'\n+'
     t.lexer.lineno += len(t.value)
 
 def t_error(t):
-    print(f"Caracter inválido: {t.value[0]}")
+    print(f"Caracter inválido '{t.value[0]}' na linha {t.lineno}")
     t.lexer.skip(1)
 
 

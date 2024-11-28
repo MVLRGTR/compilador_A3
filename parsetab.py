@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'ENQUANTO IMPRIMIR INTEIRO LBRACE LEIA LPAREN MAIOR MAIORIGUAL MENOR MENORIGUAL NUMERO OP_DIFERENTE OP_DIV OP_IGUAL OP_IGUALDADE OP_MULT OP_PONTO OP_PONTO_VIRGULA OP_SOMA OP_SUB OP_VIRGULA PARA RBRACE REAL RPAREN SE SENAO TEXTO TEXTONORMAL VARIAVELvariavel : VARIAVELliteral : NUMERO\n               | VARIAVEL\n               | TEXTONORMALstatement_list : statement_list statement\n                      | statementstatement : INTEIRO VARIAVEL OP_PONTO_VIRGULA\n                 | REAL VARIAVEL OP_PONTO_VIRGULA\n                 | TEXTO VARIAVEL OP_PONTO_VIRGULAstatement : VARIAVEL OP_IGUAL expression OP_PONTO_VIRGULAexpression : expression OP_SOMA expression\n                  | expression OP_SUB expression\n                  | expression OP_MULT expression\n                  | expression OP_DIV expressionexpression : expression MAIOR expression\n                  | expression MENOR expression\n                  | expression MAIORIGUAL expression\n                  | expression MENORIGUAL expression\n                  | expression OP_IGUALDADE expression\n                  | expression OP_DIFERENTE expressionexpression : LPAREN expression RPARENexpression : NUMERO\n                  | VARIAVELstatement : SE LPAREN expression RPAREN LBRACE statement RBRACE SENAO LBRACE statement RBRACE\n                 | SE LPAREN expression RPAREN LBRACE statement RBRACEstatement : ENQUANTO LPAREN expression RPAREN LBRACE statement RBRACEstatement : PARA LPAREN expression OP_PONTO_VIRGULA expression OP_PONTO_VIRGULA expression RPAREN LBRACE statement RBRACEimprimir_statement : IMPRIMIR LPAREN literal RPARENleia_statement : LEIA variavel'
+_lr_signature = 'ENQUANTO IMPRIMIR INTEIRO LBRACE LEIA LPAREN MAIOR MAIORIGUAL MENOR MENORIGUAL NUMERO OP_DIFERENTE OP_DIV OP_IGUAL OP_IGUALDADE OP_MULT OP_PONTO OP_PONTO_VIRGULA OP_SOMA OP_SUB OP_VIRGULA PARA RBRACE REAL RPAREN SE SENAO TEXTO TEXTONORMAL VARIAVELprogram : statement_listvariavel : VARIAVELliteral : NUMERO\n               | VARIAVEL\n               | TEXTONORMALstatement_list : statement_list statement\n                      | statementstatement : INTEIRO VARIAVEL OP_PONTO_VIRGULA\n                 | REAL VARIAVEL OP_PONTO_VIRGULA\n                 | TEXTO VARIAVEL OP_PONTO_VIRGULAstatement : VARIAVEL OP_IGUAL expression OP_PONTO_VIRGULAexpression : expression OP_SOMA expression\n                  | expression OP_SUB expression\n                  | expression OP_MULT expression\n                  | expression OP_DIV expressionexpression : expression MAIOR expression\n                  | expression MENOR expression\n                  | expression MAIORIGUAL expression\n                  | expression MENORIGUAL expression\n                  | expression OP_IGUALDADE expression\n                  | expression OP_DIFERENTE expressionexpression : LPAREN expression RPARENexpression : NUMERO\n                  | VARIAVELstatement : SE LPAREN expression RPAREN LBRACE statement RBRACE SENAO LBRACE statement RBRACE\n                 | SE LPAREN expression RPAREN LBRACE statement RBRACEstatement : ENQUANTO LPAREN expression RPAREN LBRACE statement RBRACEstatement : PARA LPAREN expression OP_PONTO_VIRGULA expression OP_PONTO_VIRGULA expression RPAREN LBRACE statement RBRACEstatement : IMPRIMIR LPAREN literal RPARENstatement : LEIA variavel'
     
-_lr_action_items = {'VARIAVEL':([0,],[2,]),'$end':([1,2,],[0,-1,]),}
+_lr_action_items = {'INTEIRO':([0,2,3,13,22,23,24,29,30,38,53,65,66,71,72,76,77,80,81,],[4,4,-7,-6,-30,-2,-8,-9,-10,-11,-29,4,4,-26,-27,4,4,-25,-28,]),'REAL':([0,2,3,13,22,23,24,29,30,38,53,65,66,71,72,76,77,80,81,],[6,6,-7,-6,-30,-2,-8,-9,-10,-11,-29,6,6,-26,-27,6,6,-25,-28,]),'TEXTO':([0,2,3,13,22,23,24,29,30,38,53,65,66,71,72,76,77,80,81,],[7,7,-7,-6,-30,-2,-8,-9,-10,-11,-29,7,7,-26,-27,7,7,-25,-28,]),'VARIAVEL':([0,2,3,4,6,7,12,13,15,18,19,20,21,22,23,24,27,29,30,38,39,40,41,42,43,44,45,46,47,48,52,53,65,66,70,71,72,76,77,80,81,],[5,5,-7,14,16,17,23,-6,25,25,25,25,36,-30,-2,-8,25,-9,-10,-11,25,25,25,25,25,25,25,25,25,25,25,-29,5,5,25,-26,-27,5,5,-25,-28,]),'SE':([0,2,3,13,22,23,24,29,30,38,53,65,66,71,72,76,77,80,81,],[8,8,-7,-6,-30,-2,-8,-9,-10,-11,-29,8,8,-26,-27,8,8,-25,-28,]),'ENQUANTO':([0,2,3,13,22,23,24,29,30,38,53,65,66,71,72,76,77,80,81,],[9,9,-7,-6,-30,-2,-8,-9,-10,-11,-29,9,9,-26,-27,9,9,-25,-28,]),'PARA':([0,2,3,13,22,23,24,29,30,38,53,65,66,71,72,76,77,80,81,],[10,10,-7,-6,-30,-2,-8,-9,-10,-11,-29,10,10,-26,-27,10,10,-25,-28,]),'IMPRIMIR':([0,2,3,13,22,23,24,29,30,38,53,65,66,71,72,76,77,80,81,],[11,11,-7,-6,-30,-2,-8,-9,-10,-11,-29,11,11,-26,-27,11,11,-25,-28,]),'LEIA':([0,2,3,13,22,23,24,29,30,38,53,65,66,71,72,76,77,80,81,],[12,12,-7,-6,-30,-2,-8,-9,-10,-11,-29,12,12,-26,-27,12,12,-25,-28,]),'$end':([1,2,3,13,22,23,24,29,30,38,53,71,72,80,81,],[0,-1,-7,-6,-30,-2,-8,-9,-10,-11,-29,-26,-27,-25,-28,]),'OP_IGUAL':([5,],[15,]),'LPAREN':([8,9,10,11,15,18,19,20,27,39,40,41,42,43,44,45,46,47,48,52,70,],[18,19,20,21,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,]),'OP_PONTO_VIRGULA':([14,16,17,25,26,28,33,54,55,56,57,58,59,60,61,62,63,64,67,],[24,29,30,-24,38,-23,52,-12,-13,-14,-15,-16,-17,-18,-19,-20,-21,-22,70,]),'NUMERO':([15,18,19,20,21,27,39,40,41,42,43,44,45,46,47,48,52,70,],[28,28,28,28,35,28,28,28,28,28,28,28,28,28,28,28,28,28,]),'TEXTONORMAL':([21,],[37,]),'RBRACE':([22,23,24,29,30,38,53,68,69,71,72,78,79,80,81,],[-30,-2,-8,-9,-10,-11,-29,71,72,-26,-27,80,81,-25,-28,]),'OP_SOMA':([25,26,28,31,32,33,49,54,55,56,57,58,59,60,61,62,63,64,67,73,],[-24,39,-23,39,39,39,39,39,39,39,39,39,39,39,39,39,39,-22,39,39,]),'OP_SUB':([25,26,28,31,32,33,49,54,55,56,57,58,59,60,61,62,63,64,67,73,],[-24,40,-23,40,40,40,40,40,40,40,40,40,40,40,40,40,40,-22,40,40,]),'OP_MULT':([25,26,28,31,32,33,49,54,55,56,57,58,59,60,61,62,63,64,67,73,],[-24,41,-23,41,41,41,41,41,41,41,41,41,41,41,41,41,41,-22,41,41,]),'OP_DIV':([25,26,28,31,32,33,49,54,55,56,57,58,59,60,61,62,63,64,67,73,],[-24,42,-23,42,42,42,42,42,42,42,42,42,42,42,42,42,42,-22,42,42,]),'MAIOR':([25,26,28,31,32,33,49,54,55,56,57,58,59,60,61,62,63,64,67,73,],[-24,43,-23,43,43,43,43,43,43,43,43,43,43,43,43,43,43,-22,43,43,]),'MENOR':([25,26,28,31,32,33,49,54,55,56,57,58,59,60,61,62,63,64,67,73,],[-24,44,-23,44,44,44,44,44,44,44,44,44,44,44,44,44,44,-22,44,44,]),'MAIORIGUAL':([25,26,28,31,32,33,49,54,55,56,57,58,59,60,61,62,63,64,67,73,],[-24,45,-23,45,45,45,45,45,45,45,45,45,45,45,45,45,45,-22,45,45,]),'MENORIGUAL':([25,26,28,31,32,33,49,54,55,56,57,58,59,60,61,62,63,64,67,73,],[-24,46,-23,46,46,46,46,46,46,46,46,46,46,46,46,46,46,-22,46,46,]),'OP_IGUALDADE':([25,26,28,31,32,33,49,54,55,56,57,58,59,60,61,62,63,64,67,73,],[-24,47,-23,47,47,47,47,47,47,47,47,47,47,47,47,47,47,-22,47,47,]),'OP_DIFERENTE':([25,26,28,31,32,33,49,54,55,56,57,58,59,60,61,62,63,64,67,73,],[-24,48,-23,48,48,48,48,48,48,48,48,48,48,48,48,48,48,-22,48,48,]),'RPAREN':([25,28,31,32,34,35,36,37,49,54,55,56,57,58,59,60,61,62,63,64,73,],[-24,-23,50,51,53,-3,-4,-5,64,-12,-13,-14,-15,-16,-17,-18,-19,-20,-21,-22,75,]),'LBRACE':([50,51,74,75,],[65,66,76,77,]),'SENAO':([71,],[74,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'variavel':([0,],[1,]),}
+_lr_goto_items = {'program':([0,],[1,]),'statement_list':([0,],[2,]),'statement':([0,2,65,66,76,77,],[3,13,68,69,78,79,]),'variavel':([12,],[22,]),'expression':([15,18,19,20,27,39,40,41,42,43,44,45,46,47,48,52,70,],[26,31,32,33,49,54,55,56,57,58,59,60,61,62,63,67,73,]),'literal':([21,],[34,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -26,34 +26,35 @@ for _k, _v in _lr_goto_items.items():
        _lr_goto[_x][_k] = _y
 del _lr_goto_items
 _lr_productions = [
-  ("S' -> variavel","S'",1,None,None,None),
-  ('variavel -> VARIAVEL','variavel',1,'p_variavel','grammar.py',8),
-  ('literal -> NUMERO','literal',1,'p_literal','grammar.py',12),
-  ('literal -> VARIAVEL','literal',1,'p_literal','grammar.py',13),
-  ('literal -> TEXTONORMAL','literal',1,'p_literal','grammar.py',14),
-  ('statement_list -> statement_list statement','statement_list',2,'p_statement_list','grammar.py',18),
-  ('statement_list -> statement','statement_list',1,'p_statement_list','grammar.py',19),
-  ('statement -> INTEIRO VARIAVEL OP_PONTO_VIRGULA','statement',3,'p_define_tipo','grammar.py',23),
-  ('statement -> REAL VARIAVEL OP_PONTO_VIRGULA','statement',3,'p_define_tipo','grammar.py',24),
-  ('statement -> TEXTO VARIAVEL OP_PONTO_VIRGULA','statement',3,'p_define_tipo','grammar.py',25),
-  ('statement -> VARIAVEL OP_IGUAL expression OP_PONTO_VIRGULA','statement',4,'p_statement_atribuicao','grammar.py',29),
-  ('expression -> expression OP_SOMA expression','expression',3,'p_expression_arit','grammar.py',33),
-  ('expression -> expression OP_SUB expression','expression',3,'p_expression_arit','grammar.py',34),
-  ('expression -> expression OP_MULT expression','expression',3,'p_expression_arit','grammar.py',35),
-  ('expression -> expression OP_DIV expression','expression',3,'p_expression_arit','grammar.py',36),
-  ('expression -> expression MAIOR expression','expression',3,'p_expression_rel','grammar.py',40),
-  ('expression -> expression MENOR expression','expression',3,'p_expression_rel','grammar.py',41),
-  ('expression -> expression MAIORIGUAL expression','expression',3,'p_expression_rel','grammar.py',42),
-  ('expression -> expression MENORIGUAL expression','expression',3,'p_expression_rel','grammar.py',43),
-  ('expression -> expression OP_IGUALDADE expression','expression',3,'p_expression_rel','grammar.py',44),
-  ('expression -> expression OP_DIFERENTE expression','expression',3,'p_expression_rel','grammar.py',45),
-  ('expression -> LPAREN expression RPAREN','expression',3,'p_expression','grammar.py',49),
-  ('expression -> NUMERO','expression',1,'p_expression_var','grammar.py',53),
-  ('expression -> VARIAVEL','expression',1,'p_expression_var','grammar.py',54),
-  ('statement -> SE LPAREN expression RPAREN LBRACE statement RBRACE SENAO LBRACE statement RBRACE','statement',11,'p_statement_se','grammar.py',58),
-  ('statement -> SE LPAREN expression RPAREN LBRACE statement RBRACE','statement',7,'p_statement_se','grammar.py',59),
-  ('statement -> ENQUANTO LPAREN expression RPAREN LBRACE statement RBRACE','statement',7,'p_statement_enquanto','grammar.py',63),
-  ('statement -> PARA LPAREN expression OP_PONTO_VIRGULA expression OP_PONTO_VIRGULA expression RPAREN LBRACE statement RBRACE','statement',11,'p_statement_para','grammar.py',67),
-  ('imprimir_statement -> IMPRIMIR LPAREN literal RPAREN','imprimir_statement',4,'p_statement_imprimir','grammar.py',71),
-  ('leia_statement -> LEIA variavel','leia_statement',2,'p_statement_leia','grammar.py',75),
+  ("S' -> program","S'",1,None,None,None),
+  ('program -> statement_list','program',1,'p_program','grammar.py',5),
+  ('variavel -> VARIAVEL','variavel',1,'p_variavel','grammar.py',10),
+  ('literal -> NUMERO','literal',1,'p_literal','grammar.py',15),
+  ('literal -> VARIAVEL','literal',1,'p_literal','grammar.py',16),
+  ('literal -> TEXTONORMAL','literal',1,'p_literal','grammar.py',17),
+  ('statement_list -> statement_list statement','statement_list',2,'p_statement_list','grammar.py',22),
+  ('statement_list -> statement','statement_list',1,'p_statement_list','grammar.py',23),
+  ('statement -> INTEIRO VARIAVEL OP_PONTO_VIRGULA','statement',3,'p_define_tipo','grammar.py',28),
+  ('statement -> REAL VARIAVEL OP_PONTO_VIRGULA','statement',3,'p_define_tipo','grammar.py',29),
+  ('statement -> TEXTO VARIAVEL OP_PONTO_VIRGULA','statement',3,'p_define_tipo','grammar.py',30),
+  ('statement -> VARIAVEL OP_IGUAL expression OP_PONTO_VIRGULA','statement',4,'p_statement_atribuicao','grammar.py',35),
+  ('expression -> expression OP_SOMA expression','expression',3,'p_expression_arit','grammar.py',50),
+  ('expression -> expression OP_SUB expression','expression',3,'p_expression_arit','grammar.py',51),
+  ('expression -> expression OP_MULT expression','expression',3,'p_expression_arit','grammar.py',52),
+  ('expression -> expression OP_DIV expression','expression',3,'p_expression_arit','grammar.py',53),
+  ('expression -> expression MAIOR expression','expression',3,'p_expression_rel','grammar.py',59),
+  ('expression -> expression MENOR expression','expression',3,'p_expression_rel','grammar.py',60),
+  ('expression -> expression MAIORIGUAL expression','expression',3,'p_expression_rel','grammar.py',61),
+  ('expression -> expression MENORIGUAL expression','expression',3,'p_expression_rel','grammar.py',62),
+  ('expression -> expression OP_IGUALDADE expression','expression',3,'p_expression_rel','grammar.py',63),
+  ('expression -> expression OP_DIFERENTE expression','expression',3,'p_expression_rel','grammar.py',64),
+  ('expression -> LPAREN expression RPAREN','expression',3,'p_expression','grammar.py',69),
+  ('expression -> NUMERO','expression',1,'p_expression_var','grammar.py',74),
+  ('expression -> VARIAVEL','expression',1,'p_expression_var','grammar.py',75),
+  ('statement -> SE LPAREN expression RPAREN LBRACE statement RBRACE SENAO LBRACE statement RBRACE','statement',11,'p_statement_se','grammar.py',80),
+  ('statement -> SE LPAREN expression RPAREN LBRACE statement RBRACE','statement',7,'p_statement_se','grammar.py',81),
+  ('statement -> ENQUANTO LPAREN expression RPAREN LBRACE statement RBRACE','statement',7,'p_statement_enquanto','grammar.py',86),
+  ('statement -> PARA LPAREN expression OP_PONTO_VIRGULA expression OP_PONTO_VIRGULA expression RPAREN LBRACE statement RBRACE','statement',11,'p_statement_para','grammar.py',91),
+  ('statement -> IMPRIMIR LPAREN literal RPAREN','statement',4,'p_statement_imprimir','grammar.py',96),
+  ('statement -> LEIA variavel','statement',2,'p_statement_leia','grammar.py',101),
 ]

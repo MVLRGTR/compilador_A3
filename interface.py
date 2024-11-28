@@ -2,6 +2,42 @@ import tkinter as tk
 from tkinter import messagebox
 from lexer import lexer
 from grammar import parser
+import re
+
+# Função para traduzir o código para Python
+def traduzir_para_python(codigo):    
+    # Substituições simples de palavras-chave e estruturas
+    substituicoes = {
+        "se": "if",
+        "senao": "else",
+        "enquanto": "while",
+        "para": "for",
+        "inteiro": "int",
+        "real": "float",
+        "texto": "str",
+        "imprimir": "print",
+        "leia": "input",
+        ";": "",
+        "{": "",
+        "}": ""
+    }
+    
+    for chave, valor in substituicoes.items():
+        # Use \b para garantir que as palavras sejam completas e não partes de outras palavras
+        codigo = re.sub(r'\b' + re.escape(chave) + r'\b', valor, codigo)
+    
+    return codigo
+
+# Função para formatar os tokens em um formato mais simples
+def formatar_tokens(tokens):    
+    token_formatado = "\n\n\n\n---------------ANALISADOR LÉXICO---------------\n"
+    token_formatado += "---------------TABELA DE SIMBOLOS-------------\n"
+    token_formatado += "-" * 63 + "\n"
+    
+    for token in tokens:
+        token_formatado += f"TIPO: {token.type:<8} | NOME: {token.value:<8} | LINHA: {token.lineno}\n"
+    
+    return token_formatado
 
 # Função para compilar o código escrito
 def compilar_codigo():
@@ -22,9 +58,15 @@ def compilar_codigo():
         # Realiza a análise sintática
         parser.parse(codigo)
         
+        # Traduz para Python
+        codigo_python = traduzir_para_python(codigo)
+        
         # Exibe os resultados na área de saída
-        saida_texto.insert("1.0", "Código compilado com sucesso.\n")
-        saida_texto.insert("1.0", "Tokens: \n" + str(tokens))
+        saida_texto.insert("1.0", "Código traduzido para Python:\n")
+        saida_texto.insert("2.0", codigo_python + "\n\n")
+        
+        # Exibe os tokens de maneira simples
+        saida_texto.insert("end", formatar_tokens(tokens))
         
     except Exception as e:
         messagebox.showerror("Erro na Compilação", f"Ocorreu um erro durante a compilação: {str(e)}")
