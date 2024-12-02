@@ -2,6 +2,8 @@
 
 Este projeto foi desenvolvido como parte do trabalho da disciplina de Teoria da Computação e Compiladores da UNIFACS, Salvador-BA. Ele consiste na criação de uma linguagem fictícia chamada **PortuPython**, que combina a simplicidade do **Portugol** com funcionalidades adicionais, como encapsulamento com chaves `{}`. O objetivo do projeto é compilar o código escrito em **PortuPython** para **Python**. Foram utilizados no projeto as bibliotecas PLY e Tkinter.
 
+https://youtu.be/OQb7Jp_h-gw
+
 ---
 
 ## 📋 Componentes do Grupo
