@@ -1,0 +1,2136 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    OP_PONTO
+    OP_VIRGULA
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> statement_list
+Rule 2     variavel -> VARIAVEL
+Rule 3     literal -> NUMERO
+Rule 4     literal -> VARIAVEL
+Rule 5     literal -> TEXTONORMAL
+Rule 6     statement_list -> statement_list statement
+Rule 7     statement_list -> statement
+Rule 8     statement -> INTEIRO VARIAVEL
+Rule 9     statement -> REAL VARIAVEL
+Rule 10    statement -> TEXTO VARIAVEL
+Rule 11    statement -> INTEIRO VARIAVEL OP_IGUAL expression
+Rule 12    statement -> REAL VARIAVEL OP_IGUAL expression
+Rule 13    statement -> TEXTO VARIAVEL OP_IGUAL expression
+Rule 14    statement -> VARIAVEL OP_IGUAL expression
+Rule 15    expression -> expression OP_SOMA expression
+Rule 16    expression -> expression OP_SUB expression
+Rule 17    expression -> expression OP_MULT expression
+Rule 18    expression -> expression OP_DIV expression
+Rule 19    expression -> expression MAIOR expression
+Rule 20    expression -> expression MENOR expression
+Rule 21    expression -> expression MAIORIGUAL expression
+Rule 22    expression -> expression MENORIGUAL expression
+Rule 23    expression -> expression OP_IGUALDADE expression
+Rule 24    expression -> expression OP_DIFERENTE expression
+Rule 25    expression -> LPAREN expression RPAREN
+Rule 26    expression -> NUMERO
+Rule 27    expression -> VARIAVEL
+Rule 28    statement -> SE LPAREN expression RPAREN LBRACE statement RBRACE SENAO LBRACE statement RBRACE
+Rule 29    statement -> SE LPAREN expression RPAREN LBRACE statement RBRACE
+Rule 30    statement -> ENQUANTO LPAREN expression RPAREN LBRACE statement RBRACE
+Rule 31    statement -> PARA LPAREN expression OP_PONTO_VIRGULA expression OP_PONTO_VIRGULA expression RPAREN LBRACE statement RBRACE
+Rule 32    statement -> IMPRIMIR LPAREN literal RPAREN
+Rule 33    statement -> LEIA variavel
+
+Terminals, with rules where they appear
+
+ENQUANTO             : 30
+IMPRIMIR             : 32
+INTEIRO              : 8 11
+LBRACE               : 28 28 29 30 31
+LEIA                 : 33
+LPAREN               : 25 28 29 30 31 32
+MAIOR                : 19
+MAIORIGUAL           : 21
+MENOR                : 20
+MENORIGUAL           : 22
+NUMERO               : 3 26
+OP_DIFERENTE         : 24
+OP_DIV               : 18
+OP_IGUAL             : 11 12 13 14
+OP_IGUALDADE         : 23
+OP_MULT              : 17
+OP_PONTO             : 
+OP_PONTO_VIRGULA     : 31 31
+OP_SOMA              : 15
+OP_SUB               : 16
+OP_VIRGULA           : 
+PARA                 : 31
+RBRACE               : 28 28 29 30 31
+REAL                 : 9 12
+RPAREN               : 25 28 29 30 31 32
+SE                   : 28 29
+SENAO                : 28
+TEXTO                : 10 13
+TEXTONORMAL          : 5
+VARIAVEL             : 2 4 8 9 10 11 12 13 14 27
+error                : 
+
+Nonterminals, with rules where they appear
+
+expression           : 11 12 13 14 15 15 16 16 17 17 18 18 19 19 20 20 21 21 22 22 23 23 24 24 25 28 29 30 31 31 31
+literal              : 32
+program              : 0
+statement            : 6 7 28 28 29 30 31
+statement_list       : 1 6
+variavel             : 33
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . statement_list
+    (6) statement_list -> . statement_list statement
+    (7) statement_list -> . statement
+    (8) statement -> . INTEIRO VARIAVEL
+    (9) statement -> . REAL VARIAVEL
+    (10) statement -> . TEXTO VARIAVEL
+    (11) statement -> . INTEIRO VARIAVEL OP_IGUAL expression
+    (12) statement -> . REAL VARIAVEL OP_IGUAL expression
+    (13) statement -> . TEXTO VARIAVEL OP_IGUAL expression
+    (14) statement -> . VARIAVEL OP_IGUAL expression
+    (28) statement -> . SE LPAREN expression RPAREN LBRACE statement RBRACE SENAO LBRACE statement RBRACE
+    (29) statement -> . SE LPAREN expression RPAREN LBRACE statement RBRACE
+    (30) statement -> . ENQUANTO LPAREN expression RPAREN LBRACE statement RBRACE
+    (31) statement -> . PARA LPAREN expression OP_PONTO_VIRGULA expression OP_PONTO_VIRGULA expression RPAREN LBRACE statement RBRACE
+    (32) statement -> . IMPRIMIR LPAREN literal RPAREN
+    (33) statement -> . LEIA variavel
+
+    INTEIRO         shift and go to state 4
+    REAL            shift and go to state 6
+    TEXTO           shift and go to state 7
+    VARIAVEL        shift and go to state 5
+    SE              shift and go to state 8
+    ENQUANTO        shift and go to state 9
+    PARA            shift and go to state 10
+    IMPRIMIR        shift and go to state 11
+    LEIA            shift and go to state 12
+
+    program                        shift and go to state 1
+    statement_list                 shift and go to state 2
+    statement                      shift and go to state 3
+
+state 1
+
+    (0) S' -> program .
+
+
+
+state 2
+
+    (1) program -> statement_list .
+    (6) statement_list -> statement_list . statement
+    (8) statement -> . INTEIRO VARIAVEL
+    (9) statement -> . REAL VARIAVEL
+    (10) statement -> . TEXTO VARIAVEL
+    (11) statement -> . INTEIRO VARIAVEL OP_IGUAL expression
+    (12) statement -> . REAL VARIAVEL OP_IGUAL expression
+    (13) statement -> . TEXTO VARIAVEL OP_IGUAL expression
+    (14) statement -> . VARIAVEL OP_IGUAL expression
+    (28) statement -> . SE LPAREN expression RPAREN LBRACE statement RBRACE SENAO LBRACE statement RBRACE
+    (29) statement -> . SE LPAREN expression RPAREN LBRACE statement RBRACE
+    (30) statement -> . ENQUANTO LPAREN expression RPAREN LBRACE statement RBRACE
+    (31) statement -> . PARA LPAREN expression OP_PONTO_VIRGULA expression OP_PONTO_VIRGULA expression RPAREN LBRACE statement RBRACE
+    (32) statement -> . IMPRIMIR LPAREN literal RPAREN
+    (33) statement -> . LEIA variavel
+
+    $end            reduce using rule 1 (program -> statement_list .)
+    INTEIRO         shift and go to state 4
+    REAL            shift and go to state 6
+    TEXTO           shift and go to state 7
+    VARIAVEL        shift and go to state 5
+    SE              shift and go to state 8
+    ENQUANTO        shift and go to state 9
+    PARA            shift and go to state 10
+    IMPRIMIR        shift and go to state 11
+    LEIA            shift and go to state 12
+
+    statement                      shift and go to state 13
+
+state 3
+
+    (7) statement_list -> statement .
+
+    INTEIRO         reduce using rule 7 (statement_list -> statement .)
+    REAL            reduce using rule 7 (statement_list -> statement .)
+    TEXTO           reduce using rule 7 (statement_list -> statement .)
+    VARIAVEL        reduce using rule 7 (statement_list -> statement .)
+    SE              reduce using rule 7 (statement_list -> statement .)
+    ENQUANTO        reduce using rule 7 (statement_list -> statement .)
+    PARA            reduce using rule 7 (statement_list -> statement .)
+    IMPRIMIR        reduce using rule 7 (statement_list -> statement .)
+    LEIA            reduce using rule 7 (statement_list -> statement .)
+    $end            reduce using rule 7 (statement_list -> statement .)
+
+
+state 4
+
+    (8) statement -> INTEIRO . VARIAVEL
+    (11) statement -> INTEIRO . VARIAVEL OP_IGUAL expression
+
+    VARIAVEL        shift and go to state 14
+
+
+state 5
+
+    (14) statement -> VARIAVEL . OP_IGUAL expression
+
+    OP_IGUAL        shift and go to state 15
+
+
+state 6
+
+    (9) statement -> REAL . VARIAVEL
+    (12) statement -> REAL . VARIAVEL OP_IGUAL expression
+
+    VARIAVEL        shift and go to state 16
+
+
+state 7
+
+    (10) statement -> TEXTO . VARIAVEL
+    (13) statement -> TEXTO . VARIAVEL OP_IGUAL expression
+
+    VARIAVEL        shift and go to state 17
+
+
+state 8
+
+    (28) statement -> SE . LPAREN expression RPAREN LBRACE statement RBRACE SENAO LBRACE statement RBRACE
+    (29) statement -> SE . LPAREN expression RPAREN LBRACE statement RBRACE
+
+    LPAREN          shift and go to state 18
+
+
+state 9
+
+    (30) statement -> ENQUANTO . LPAREN expression RPAREN LBRACE statement RBRACE
+
+    LPAREN          shift and go to state 19
+
+
+state 10
+
+    (31) statement -> PARA . LPAREN expression OP_PONTO_VIRGULA expression OP_PONTO_VIRGULA expression RPAREN LBRACE statement RBRACE
+
+    LPAREN          shift and go to state 20
+
+
+state 11
+
+    (32) statement -> IMPRIMIR . LPAREN literal RPAREN
+
+    LPAREN          shift and go to state 21
+
+
+state 12
+
+    (33) statement -> LEIA . variavel
+    (2) variavel -> . VARIAVEL
+
+    VARIAVEL        shift and go to state 23
+
+    variavel                       shift and go to state 22
+
+state 13
+
+    (6) statement_list -> statement_list statement .
+
+    INTEIRO         reduce using rule 6 (statement_list -> statement_list statement .)
+    REAL            reduce using rule 6 (statement_list -> statement_list statement .)
+    TEXTO           reduce using rule 6 (statement_list -> statement_list statement .)
+    VARIAVEL        reduce using rule 6 (statement_list -> statement_list statement .)
+    SE              reduce using rule 6 (statement_list -> statement_list statement .)
+    ENQUANTO        reduce using rule 6 (statement_list -> statement_list statement .)
+    PARA            reduce using rule 6 (statement_list -> statement_list statement .)
+    IMPRIMIR        reduce using rule 6 (statement_list -> statement_list statement .)
+    LEIA            reduce using rule 6 (statement_list -> statement_list statement .)
+    $end            reduce using rule 6 (statement_list -> statement_list statement .)
+
+
+state 14
+
+    (8) statement -> INTEIRO VARIAVEL .
+    (11) statement -> INTEIRO VARIAVEL . OP_IGUAL expression
+
+    INTEIRO         reduce using rule 8 (statement -> INTEIRO VARIAVEL .)
+    REAL            reduce using rule 8 (statement -> INTEIRO VARIAVEL .)
+    TEXTO           reduce using rule 8 (statement -> INTEIRO VARIAVEL .)
+    VARIAVEL        reduce using rule 8 (statement -> INTEIRO VARIAVEL .)
+    SE              reduce using rule 8 (statement -> INTEIRO VARIAVEL .)
+    ENQUANTO        reduce using rule 8 (statement -> INTEIRO VARIAVEL .)
+    PARA            reduce using rule 8 (statement -> INTEIRO VARIAVEL .)
+    IMPRIMIR        reduce using rule 8 (statement -> INTEIRO VARIAVEL .)
+    LEIA            reduce using rule 8 (statement -> INTEIRO VARIAVEL .)
+    $end            reduce using rule 8 (statement -> INTEIRO VARIAVEL .)
+    RBRACE          reduce using rule 8 (statement -> INTEIRO VARIAVEL .)
+    OP_IGUAL        shift and go to state 24
+
+
+state 15
+
+    (14) statement -> VARIAVEL OP_IGUAL . expression
+    (15) expression -> . expression OP_SOMA expression
+    (16) expression -> . expression OP_SUB expression
+    (17) expression -> . expression OP_MULT expression
+    (18) expression -> . expression OP_DIV expression
+    (19) expression -> . expression MAIOR expression
+    (20) expression -> . expression MENOR expression
+    (21) expression -> . expression MAIORIGUAL expression
+    (22) expression -> . expression MENORIGUAL expression
+    (23) expression -> . expression OP_IGUALDADE expression
+    (24) expression -> . expression OP_DIFERENTE expression
+    (25) expression -> . LPAREN expression RPAREN
+    (26) expression -> . NUMERO
+    (27) expression -> . VARIAVEL
+
+    LPAREN          shift and go to state 27
+    NUMERO          shift and go to state 28
+    VARIAVEL        shift and go to state 25
+
+    expression                     shift and go to state 26
+
+state 16
+
+    (9) statement -> REAL VARIAVEL .
+    (12) statement -> REAL VARIAVEL . OP_IGUAL expression
+
+    INTEIRO         reduce using rule 9 (statement -> REAL VARIAVEL .)
+    REAL            reduce using rule 9 (statement -> REAL VARIAVEL .)
+    TEXTO           reduce using rule 9 (statement -> REAL VARIAVEL .)
+    VARIAVEL        reduce using rule 9 (statement -> REAL VARIAVEL .)
+    SE              reduce using rule 9 (statement -> REAL VARIAVEL .)
+    ENQUANTO        reduce using rule 9 (statement -> REAL VARIAVEL .)
+    PARA            reduce using rule 9 (statement -> REAL VARIAVEL .)
+    IMPRIMIR        reduce using rule 9 (statement -> REAL VARIAVEL .)
+    LEIA            reduce using rule 9 (statement -> REAL VARIAVEL .)
+    $end            reduce using rule 9 (statement -> REAL VARIAVEL .)
+    RBRACE          reduce using rule 9 (statement -> REAL VARIAVEL .)
+    OP_IGUAL        shift and go to state 29
+
+
+state 17
+
+    (10) statement -> TEXTO VARIAVEL .
+    (13) statement -> TEXTO VARIAVEL . OP_IGUAL expression
+
+    INTEIRO         reduce using rule 10 (statement -> TEXTO VARIAVEL .)
+    REAL            reduce using rule 10 (statement -> TEXTO VARIAVEL .)
+    TEXTO           reduce using rule 10 (statement -> TEXTO VARIAVEL .)
+    VARIAVEL        reduce using rule 10 (statement -> TEXTO VARIAVEL .)
+    SE              reduce using rule 10 (statement -> TEXTO VARIAVEL .)
+    ENQUANTO        reduce using rule 10 (statement -> TEXTO VARIAVEL .)
+    PARA            reduce using rule 10 (statement -> TEXTO VARIAVEL .)
+    IMPRIMIR        reduce using rule 10 (statement -> TEXTO VARIAVEL .)
+    LEIA            reduce using rule 10 (statement -> TEXTO VARIAVEL .)
+    $end            reduce using rule 10 (statement -> TEXTO VARIAVEL .)
+    RBRACE          reduce using rule 10 (statement -> TEXTO VARIAVEL .)
+    OP_IGUAL        shift and go to state 30
+
+
+state 18
+
+    (28) statement -> SE LPAREN . expression RPAREN LBRACE statement RBRACE SENAO LBRACE statement RBRACE
+    (29) statement -> SE LPAREN . expression RPAREN LBRACE statement RBRACE
+    (15) expression -> . expression OP_SOMA expression
+    (16) expression -> . expression OP_SUB expression
+    (17) expression -> . expression OP_MULT expression
+    (18) expression -> . expression OP_DIV expression
+    (19) expression -> . expression MAIOR expression
+    (20) expression -> . expression MENOR expression
+    (21) expression -> . expression MAIORIGUAL expression
+    (22) expression -> . expression MENORIGUAL expression
+    (23) expression -> . expression OP_IGUALDADE expression
+    (24) expression -> . expression OP_DIFERENTE expression
+    (25) expression -> . LPAREN expression RPAREN
+    (26) expression -> . NUMERO
+    (27) expression -> . VARIAVEL
+
+    LPAREN          shift and go to state 27
+    NUMERO          shift and go to state 28
+    VARIAVEL        shift and go to state 25
+
+    expression                     shift and go to state 31
+
+state 19
+
+    (30) statement -> ENQUANTO LPAREN . expression RPAREN LBRACE statement RBRACE
+    (15) expression -> . expression OP_SOMA expression
+    (16) expression -> . expression OP_SUB expression
+    (17) expression -> . expression OP_MULT expression
+    (18) expression -> . expression OP_DIV expression
+    (19) expression -> . expression MAIOR expression
+    (20) expression -> . expression MENOR expression
+    (21) expression -> . expression MAIORIGUAL expression
+    (22) expression -> . expression MENORIGUAL expression
+    (23) expression -> . expression OP_IGUALDADE expression
+    (24) expression -> . expression OP_DIFERENTE expression
+    (25) expression -> . LPAREN expression RPAREN
+    (26) expression -> . NUMERO
+    (27) expression -> . VARIAVEL
+
+    LPAREN          shift and go to state 27
+    NUMERO          shift and go to state 28
+    VARIAVEL        shift and go to state 25
+
+    expression                     shift and go to state 32
+
+state 20
+
+    (31) statement -> PARA LPAREN . expression OP_PONTO_VIRGULA expression OP_PONTO_VIRGULA expression RPAREN LBRACE statement RBRACE
+    (15) expression -> . expression OP_SOMA expression
+    (16) expression -> . expression OP_SUB expression
+    (17) expression -> . expression OP_MULT expression
+    (18) expression -> . expression OP_DIV expression
+    (19) expression -> . expression MAIOR expression
+    (20) expression -> . expression MENOR expression
+    (21) expression -> . expression MAIORIGUAL expression
+    (22) expression -> . expression MENORIGUAL expression
+    (23) expression -> . expression OP_IGUALDADE expression
+    (24) expression -> . expression OP_DIFERENTE expression
+    (25) expression -> . LPAREN expression RPAREN
+    (26) expression -> . NUMERO
+    (27) expression -> . VARIAVEL
+
+    LPAREN          shift and go to state 27
+    NUMERO          shift and go to state 28
+    VARIAVEL        shift and go to state 25
+
+    expression                     shift and go to state 33
+
+state 21
+
+    (32) statement -> IMPRIMIR LPAREN . literal RPAREN
+    (3) literal -> . NUMERO
+    (4) literal -> . VARIAVEL
+    (5) literal -> . TEXTONORMAL
+
+    NUMERO          shift and go to state 35
+    VARIAVEL        shift and go to state 36
+    TEXTONORMAL     shift and go to state 37
+
+    literal                        shift and go to state 34
+
+state 22
+
+    (33) statement -> LEIA variavel .
+
+    INTEIRO         reduce using rule 33 (statement -> LEIA variavel .)
+    REAL            reduce using rule 33 (statement -> LEIA variavel .)
+    TEXTO           reduce using rule 33 (statement -> LEIA variavel .)
+    VARIAVEL        reduce using rule 33 (statement -> LEIA variavel .)
+    SE              reduce using rule 33 (statement -> LEIA variavel .)
+    ENQUANTO        reduce using rule 33 (statement -> LEIA variavel .)
+    PARA            reduce using rule 33 (statement -> LEIA variavel .)
+    IMPRIMIR        reduce using rule 33 (statement -> LEIA variavel .)
+    LEIA            reduce using rule 33 (statement -> LEIA variavel .)
+    $end            reduce using rule 33 (statement -> LEIA variavel .)
+    RBRACE          reduce using rule 33 (statement -> LEIA variavel .)
+
+
+state 23
+
+    (2) variavel -> VARIAVEL .
+
+    INTEIRO         reduce using rule 2 (variavel -> VARIAVEL .)
+    REAL            reduce using rule 2 (variavel -> VARIAVEL .)
+    TEXTO           reduce using rule 2 (variavel -> VARIAVEL .)
+    VARIAVEL        reduce using rule 2 (variavel -> VARIAVEL .)
+    SE              reduce using rule 2 (variavel -> VARIAVEL .)
+    ENQUANTO        reduce using rule 2 (variavel -> VARIAVEL .)
+    PARA            reduce using rule 2 (variavel -> VARIAVEL .)
+    IMPRIMIR        reduce using rule 2 (variavel -> VARIAVEL .)
+    LEIA            reduce using rule 2 (variavel -> VARIAVEL .)
+    $end            reduce using rule 2 (variavel -> VARIAVEL .)
+    RBRACE          reduce using rule 2 (variavel -> VARIAVEL .)
+
+
+state 24
+
+    (11) statement -> INTEIRO VARIAVEL OP_IGUAL . expression
+    (15) expression -> . expression OP_SOMA expression
+    (16) expression -> . expression OP_SUB expression
+    (17) expression -> . expression OP_MULT expression
+    (18) expression -> . expression OP_DIV expression
+    (19) expression -> . expression MAIOR expression
+    (20) expression -> . expression MENOR expression
+    (21) expression -> . expression MAIORIGUAL expression
+    (22) expression -> . expression MENORIGUAL expression
+    (23) expression -> . expression OP_IGUALDADE expression
+    (24) expression -> . expression OP_DIFERENTE expression
+    (25) expression -> . LPAREN expression RPAREN
+    (26) expression -> . NUMERO
+    (27) expression -> . VARIAVEL
+
+    LPAREN          shift and go to state 27
+    NUMERO          shift and go to state 28
+    VARIAVEL        shift and go to state 25
+
+    expression                     shift and go to state 38
+
+state 25
+
+    (27) expression -> VARIAVEL .
+
+    OP_SOMA         reduce using rule 27 (expression -> VARIAVEL .)
+    OP_SUB          reduce using rule 27 (expression -> VARIAVEL .)
+    OP_MULT         reduce using rule 27 (expression -> VARIAVEL .)
+    OP_DIV          reduce using rule 27 (expression -> VARIAVEL .)
+    MAIOR           reduce using rule 27 (expression -> VARIAVEL .)
+    MENOR           reduce using rule 27 (expression -> VARIAVEL .)
+    MAIORIGUAL      reduce using rule 27 (expression -> VARIAVEL .)
+    MENORIGUAL      reduce using rule 27 (expression -> VARIAVEL .)
+    OP_IGUALDADE    reduce using rule 27 (expression -> VARIAVEL .)
+    OP_DIFERENTE    reduce using rule 27 (expression -> VARIAVEL .)
+    INTEIRO         reduce using rule 27 (expression -> VARIAVEL .)
+    REAL            reduce using rule 27 (expression -> VARIAVEL .)
+    TEXTO           reduce using rule 27 (expression -> VARIAVEL .)
+    VARIAVEL        reduce using rule 27 (expression -> VARIAVEL .)
+    SE              reduce using rule 27 (expression -> VARIAVEL .)
+    ENQUANTO        reduce using rule 27 (expression -> VARIAVEL .)
+    PARA            reduce using rule 27 (expression -> VARIAVEL .)
+    IMPRIMIR        reduce using rule 27 (expression -> VARIAVEL .)
+    LEIA            reduce using rule 27 (expression -> VARIAVEL .)
+    $end            reduce using rule 27 (expression -> VARIAVEL .)
+    RBRACE          reduce using rule 27 (expression -> VARIAVEL .)
+    RPAREN          reduce using rule 27 (expression -> VARIAVEL .)
+    OP_PONTO_VIRGULA reduce using rule 27 (expression -> VARIAVEL .)
+
+
+state 26
+
+    (14) statement -> VARIAVEL OP_IGUAL expression .
+    (15) expression -> expression . OP_SOMA expression
+    (16) expression -> expression . OP_SUB expression
+    (17) expression -> expression . OP_MULT expression
+    (18) expression -> expression . OP_DIV expression
+    (19) expression -> expression . MAIOR expression
+    (20) expression -> expression . MENOR expression
+    (21) expression -> expression . MAIORIGUAL expression
+    (22) expression -> expression . MENORIGUAL expression
+    (23) expression -> expression . OP_IGUALDADE expression
+    (24) expression -> expression . OP_DIFERENTE expression
+
+    INTEIRO         reduce using rule 14 (statement -> VARIAVEL OP_IGUAL expression .)
+    REAL            reduce using rule 14 (statement -> VARIAVEL OP_IGUAL expression .)
+    TEXTO           reduce using rule 14 (statement -> VARIAVEL OP_IGUAL expression .)
+    VARIAVEL        reduce using rule 14 (statement -> VARIAVEL OP_IGUAL expression .)
+    SE              reduce using rule 14 (statement -> VARIAVEL OP_IGUAL expression .)
+    ENQUANTO        reduce using rule 14 (statement -> VARIAVEL OP_IGUAL expression .)
+    PARA            reduce using rule 14 (statement -> VARIAVEL OP_IGUAL expression .)
+    IMPRIMIR        reduce using rule 14 (statement -> VARIAVEL OP_IGUAL expression .)
+    LEIA            reduce using rule 14 (statement -> VARIAVEL OP_IGUAL expression .)
+    $end            reduce using rule 14 (statement -> VARIAVEL OP_IGUAL expression .)
+    RBRACE          reduce using rule 14 (statement -> VARIAVEL OP_IGUAL expression .)
+    OP_SOMA         shift and go to state 39
+    OP_SUB          shift and go to state 40
+    OP_MULT         shift and go to state 41
+    OP_DIV          shift and go to state 42
+    MAIOR           shift and go to state 43
+    MENOR           shift and go to state 44
+    MAIORIGUAL      shift and go to state 45
+    MENORIGUAL      shift and go to state 46
+    OP_IGUALDADE    shift and go to state 47
+    OP_DIFERENTE    shift and go to state 48
+
+
+state 27
+
+    (25) expression -> LPAREN . expression RPAREN
+    (15) expression -> . expression OP_SOMA expression
+    (16) expression -> . expression OP_SUB expression
+    (17) expression -> . expression OP_MULT expression
+    (18) expression -> . expression OP_DIV expression
+    (19) expression -> . expression MAIOR expression
+    (20) expression -> . expression MENOR expression
+    (21) expression -> . expression MAIORIGUAL expression
+    (22) expression -> . expression MENORIGUAL expression
+    (23) expression -> . expression OP_IGUALDADE expression
+    (24) expression -> . expression OP_DIFERENTE expression
+    (25) expression -> . LPAREN expression RPAREN
+    (26) expression -> . NUMERO
+    (27) expression -> . VARIAVEL
+
+    LPAREN          shift and go to state 27
+    NUMERO          shift and go to state 28
+    VARIAVEL        shift and go to state 25
+
+    expression                     shift and go to state 49
+
+state 28
+
+    (26) expression -> NUMERO .
+
+    OP_SOMA         reduce using rule 26 (expression -> NUMERO .)
+    OP_SUB          reduce using rule 26 (expression -> NUMERO .)
+    OP_MULT         reduce using rule 26 (expression -> NUMERO .)
+    OP_DIV          reduce using rule 26 (expression -> NUMERO .)
+    MAIOR           reduce using rule 26 (expression -> NUMERO .)
+    MENOR           reduce using rule 26 (expression -> NUMERO .)
+    MAIORIGUAL      reduce using rule 26 (expression -> NUMERO .)
+    MENORIGUAL      reduce using rule 26 (expression -> NUMERO .)
+    OP_IGUALDADE    reduce using rule 26 (expression -> NUMERO .)
+    OP_DIFERENTE    reduce using rule 26 (expression -> NUMERO .)
+    INTEIRO         reduce using rule 26 (expression -> NUMERO .)
+    REAL            reduce using rule 26 (expression -> NUMERO .)
+    TEXTO           reduce using rule 26 (expression -> NUMERO .)
+    VARIAVEL        reduce using rule 26 (expression -> NUMERO .)
+    SE              reduce using rule 26 (expression -> NUMERO .)
+    ENQUANTO        reduce using rule 26 (expression -> NUMERO .)
+    PARA            reduce using rule 26 (expression -> NUMERO .)
+    IMPRIMIR        reduce using rule 26 (expression -> NUMERO .)
+    LEIA            reduce using rule 26 (expression -> NUMERO .)
+    $end            reduce using rule 26 (expression -> NUMERO .)
+    RBRACE          reduce using rule 26 (expression -> NUMERO .)
+    RPAREN          reduce using rule 26 (expression -> NUMERO .)
+    OP_PONTO_VIRGULA reduce using rule 26 (expression -> NUMERO .)
+
+
+state 29
+
+    (12) statement -> REAL VARIAVEL OP_IGUAL . expression
+    (15) expression -> . expression OP_SOMA expression
+    (16) expression -> . expression OP_SUB expression
+    (17) expression -> . expression OP_MULT expression
+    (18) expression -> . expression OP_DIV expression
+    (19) expression -> . expression MAIOR expression
+    (20) expression -> . expression MENOR expression
+    (21) expression -> . expression MAIORIGUAL expression
+    (22) expression -> . expression MENORIGUAL expression
+    (23) expression -> . expression OP_IGUALDADE expression
+    (24) expression -> . expression OP_DIFERENTE expression
+    (25) expression -> . LPAREN expression RPAREN
+    (26) expression -> . NUMERO
+    (27) expression -> . VARIAVEL
+
+    LPAREN          shift and go to state 27
+    NUMERO          shift and go to state 28
+    VARIAVEL        shift and go to state 25
+
+    expression                     shift and go to state 50
+
+state 30
+
+    (13) statement -> TEXTO VARIAVEL OP_IGUAL . expression
+    (15) expression -> . expression OP_SOMA expression
+    (16) expression -> . expression OP_SUB expression
+    (17) expression -> . expression OP_MULT expression
+    (18) expression -> . expression OP_DIV expression
+    (19) expression -> . expression MAIOR expression
+    (20) expression -> . expression MENOR expression
+    (21) expression -> . expression MAIORIGUAL expression
+    (22) expression -> . expression MENORIGUAL expression
+    (23) expression -> . expression OP_IGUALDADE expression
+    (24) expression -> . expression OP_DIFERENTE expression
+    (25) expression -> . LPAREN expression RPAREN
+    (26) expression -> . NUMERO
+    (27) expression -> . VARIAVEL
+
+    LPAREN          shift and go to state 27
+    NUMERO          shift and go to state 28
+    VARIAVEL        shift and go to state 25
+
+    expression                     shift and go to state 51
+
+state 31
+
+    (28) statement -> SE LPAREN expression . RPAREN LBRACE statement RBRACE SENAO LBRACE statement RBRACE
+    (29) statement -> SE LPAREN expression . RPAREN LBRACE statement RBRACE
+    (15) expression -> expression . OP_SOMA expression
+    (16) expression -> expression . OP_SUB expression
+    (17) expression -> expression . OP_MULT expression
+    (18) expression -> expression . OP_DIV expression
+    (19) expression -> expression . MAIOR expression
+    (20) expression -> expression . MENOR expression
+    (21) expression -> expression . MAIORIGUAL expression
+    (22) expression -> expression . MENORIGUAL expression
+    (23) expression -> expression . OP_IGUALDADE expression
+    (24) expression -> expression . OP_DIFERENTE expression
+
+    RPAREN          shift and go to state 52
+    OP_SOMA         shift and go to state 39
+    OP_SUB          shift and go to state 40
+    OP_MULT         shift and go to state 41
+    OP_DIV          shift and go to state 42
+    MAIOR           shift and go to state 43
+    MENOR           shift and go to state 44
+    MAIORIGUAL      shift and go to state 45
+    MENORIGUAL      shift and go to state 46
+    OP_IGUALDADE    shift and go to state 47
+    OP_DIFERENTE    shift and go to state 48
+
+
+state 32
+
+    (30) statement -> ENQUANTO LPAREN expression . RPAREN LBRACE statement RBRACE
+    (15) expression -> expression . OP_SOMA expression
+    (16) expression -> expression . OP_SUB expression
+    (17) expression -> expression . OP_MULT expression
+    (18) expression -> expression . OP_DIV expression
+    (19) expression -> expression . MAIOR expression
+    (20) expression -> expression . MENOR expression
+    (21) expression -> expression . MAIORIGUAL expression
+    (22) expression -> expression . MENORIGUAL expression
+    (23) expression -> expression . OP_IGUALDADE expression
+    (24) expression -> expression . OP_DIFERENTE expression
+
+    RPAREN          shift and go to state 53
+    OP_SOMA         shift and go to state 39
+    OP_SUB          shift and go to state 40
+    OP_MULT         shift and go to state 41
+    OP_DIV          shift and go to state 42
+    MAIOR           shift and go to state 43
+    MENOR           shift and go to state 44
+    MAIORIGUAL      shift and go to state 45
+    MENORIGUAL      shift and go to state 46
+    OP_IGUALDADE    shift and go to state 47
+    OP_DIFERENTE    shift and go to state 48
+
+
+state 33
+
+    (31) statement -> PARA LPAREN expression . OP_PONTO_VIRGULA expression OP_PONTO_VIRGULA expression RPAREN LBRACE statement RBRACE
+    (15) expression -> expression . OP_SOMA expression
+    (16) expression -> expression . OP_SUB expression
+    (17) expression -> expression . OP_MULT expression
+    (18) expression -> expression . OP_DIV expression
+    (19) expression -> expression . MAIOR expression
+    (20) expression -> expression . MENOR expression
+    (21) expression -> expression . MAIORIGUAL expression
+    (22) expression -> expression . MENORIGUAL expression
+    (23) expression -> expression . OP_IGUALDADE expression
+    (24) expression -> expression . OP_DIFERENTE expression
+
+    OP_PONTO_VIRGULA shift and go to state 54
+    OP_SOMA         shift and go to state 39
+    OP_SUB          shift and go to state 40
+    OP_MULT         shift and go to state 41
+    OP_DIV          shift and go to state 42
+    MAIOR           shift and go to state 43
+    MENOR           shift and go to state 44
+    MAIORIGUAL      shift and go to state 45
+    MENORIGUAL      shift and go to state 46
+    OP_IGUALDADE    shift and go to state 47
+    OP_DIFERENTE    shift and go to state 48
+
+
+state 34
+
+    (32) statement -> IMPRIMIR LPAREN literal . RPAREN
+
+    RPAREN          shift and go to state 55
+
+
+state 35
+
+    (3) literal -> NUMERO .
+
+    RPAREN          reduce using rule 3 (literal -> NUMERO .)
+
+
+state 36
+
+    (4) literal -> VARIAVEL .
+
+    RPAREN          reduce using rule 4 (literal -> VARIAVEL .)
+
+
+state 37
+
+    (5) literal -> TEXTONORMAL .
+
+    RPAREN          reduce using rule 5 (literal -> TEXTONORMAL .)
+
+
+state 38
+
+    (11) statement -> INTEIRO VARIAVEL OP_IGUAL expression .
+    (15) expression -> expression . OP_SOMA expression
+    (16) expression -> expression . OP_SUB expression
+    (17) expression -> expression . OP_MULT expression
+    (18) expression -> expression . OP_DIV expression
+    (19) expression -> expression . MAIOR expression
+    (20) expression -> expression . MENOR expression
+    (21) expression -> expression . MAIORIGUAL expression
+    (22) expression -> expression . MENORIGUAL expression
+    (23) expression -> expression . OP_IGUALDADE expression
+    (24) expression -> expression . OP_DIFERENTE expression
+
+    INTEIRO         reduce using rule 11 (statement -> INTEIRO VARIAVEL OP_IGUAL expression .)
+    REAL            reduce using rule 11 (statement -> INTEIRO VARIAVEL OP_IGUAL expression .)
+    TEXTO           reduce using rule 11 (statement -> INTEIRO VARIAVEL OP_IGUAL expression .)
+    VARIAVEL        reduce using rule 11 (statement -> INTEIRO VARIAVEL OP_IGUAL expression .)
+    SE              reduce using rule 11 (statement -> INTEIRO VARIAVEL OP_IGUAL expression .)
+    ENQUANTO        reduce using rule 11 (statement -> INTEIRO VARIAVEL OP_IGUAL expression .)
+    PARA            reduce using rule 11 (statement -> INTEIRO VARIAVEL OP_IGUAL expression .)
+    IMPRIMIR        reduce using rule 11 (statement -> INTEIRO VARIAVEL OP_IGUAL expression .)
+    LEIA            reduce using rule 11 (statement -> INTEIRO VARIAVEL OP_IGUAL expression .)
+    $end            reduce using rule 11 (statement -> INTEIRO VARIAVEL OP_IGUAL expression .)
+    RBRACE          reduce using rule 11 (statement -> INTEIRO VARIAVEL OP_IGUAL expression .)
+    OP_SOMA         shift and go to state 39
+    OP_SUB          shift and go to state 40
+    OP_MULT         shift and go to state 41
+    OP_DIV          shift and go to state 42
+    MAIOR           shift and go to state 43
+    MENOR           shift and go to state 44
+    MAIORIGUAL      shift and go to state 45
+    MENORIGUAL      shift and go to state 46
+    OP_IGUALDADE    shift and go to state 47
+    OP_DIFERENTE    shift and go to state 48
+
+
+state 39
+
+    (15) expression -> expression OP_SOMA . expression
+    (15) expression -> . expression OP_SOMA expression
+    (16) expression -> . expression OP_SUB expression
+    (17) expression -> . expression OP_MULT expression
+    (18) expression -> . expression OP_DIV expression
+    (19) expression -> . expression MAIOR expression
+    (20) expression -> . expression MENOR expression
+    (21) expression -> . expression MAIORIGUAL expression
+    (22) expression -> . expression MENORIGUAL expression
+    (23) expression -> . expression OP_IGUALDADE expression
+    (24) expression -> . expression OP_DIFERENTE expression
+    (25) expression -> . LPAREN expression RPAREN
+    (26) expression -> . NUMERO
+    (27) expression -> . VARIAVEL
+
+    LPAREN          shift and go to state 27
+    NUMERO          shift and go to state 28
+    VARIAVEL        shift and go to state 25
+
+    expression                     shift and go to state 56
+
+state 40
+
+    (16) expression -> expression OP_SUB . expression
+    (15) expression -> . expression OP_SOMA expression
+    (16) expression -> . expression OP_SUB expression
+    (17) expression -> . expression OP_MULT expression
+    (18) expression -> . expression OP_DIV expression
+    (19) expression -> . expression MAIOR expression
+    (20) expression -> . expression MENOR expression
+    (21) expression -> . expression MAIORIGUAL expression
+    (22) expression -> . expression MENORIGUAL expression
+    (23) expression -> . expression OP_IGUALDADE expression
+    (24) expression -> . expression OP_DIFERENTE expression
+    (25) expression -> . LPAREN expression RPAREN
+    (26) expression -> . NUMERO
+    (27) expression -> . VARIAVEL
+
+    LPAREN          shift and go to state 27
+    NUMERO          shift and go to state 28
+    VARIAVEL        shift and go to state 25
+
+    expression                     shift and go to state 57
+
+state 41
+
+    (17) expression -> expression OP_MULT . expression
+    (15) expression -> . expression OP_SOMA expression
+    (16) expression -> . expression OP_SUB expression
+    (17) expression -> . expression OP_MULT expression
+    (18) expression -> . expression OP_DIV expression
+    (19) expression -> . expression MAIOR expression
+    (20) expression -> . expression MENOR expression
+    (21) expression -> . expression MAIORIGUAL expression
+    (22) expression -> . expression MENORIGUAL expression
+    (23) expression -> . expression OP_IGUALDADE expression
+    (24) expression -> . expression OP_DIFERENTE expression
+    (25) expression -> . LPAREN expression RPAREN
+    (26) expression -> . NUMERO
+    (27) expression -> . VARIAVEL
+
+    LPAREN          shift and go to state 27
+    NUMERO          shift and go to state 28
+    VARIAVEL        shift and go to state 25
+
+    expression                     shift and go to state 58
+
+state 42
+
+    (18) expression -> expression OP_DIV . expression
+    (15) expression -> . expression OP_SOMA expression
+    (16) expression -> . expression OP_SUB expression
+    (17) expression -> . expression OP_MULT expression
+    (18) expression -> . expression OP_DIV expression
+    (19) expression -> . expression MAIOR expression
+    (20) expression -> . expression MENOR expression
+    (21) expression -> . expression MAIORIGUAL expression
+    (22) expression -> . expression MENORIGUAL expression
+    (23) expression -> . expression OP_IGUALDADE expression
+    (24) expression -> . expression OP_DIFERENTE expression
+    (25) expression -> . LPAREN expression RPAREN
+    (26) expression -> . NUMERO
+    (27) expression -> . VARIAVEL
+
+    LPAREN          shift and go to state 27
+    NUMERO          shift and go to state 28
+    VARIAVEL        shift and go to state 25
+
+    expression                     shift and go to state 59
+
+state 43
+
+    (19) expression -> expression MAIOR . expression
+    (15) expression -> . expression OP_SOMA expression
+    (16) expression -> . expression OP_SUB expression
+    (17) expression -> . expression OP_MULT expression
+    (18) expression -> . expression OP_DIV expression
+    (19) expression -> . expression MAIOR expression
+    (20) expression -> . expression MENOR expression
+    (21) expression -> . expression MAIORIGUAL expression
+    (22) expression -> . expression MENORIGUAL expression
+    (23) expression -> . expression OP_IGUALDADE expression
+    (24) expression -> . expression OP_DIFERENTE expression
+    (25) expression -> . LPAREN expression RPAREN
+    (26) expression -> . NUMERO
+    (27) expression -> . VARIAVEL
+
+    LPAREN          shift and go to state 27
+    NUMERO          shift and go to state 28
+    VARIAVEL        shift and go to state 25
+
+    expression                     shift and go to state 60
+
+state 44
+
+    (20) expression -> expression MENOR . expression
+    (15) expression -> . expression OP_SOMA expression
+    (16) expression -> . expression OP_SUB expression
+    (17) expression -> . expression OP_MULT expression
+    (18) expression -> . expression OP_DIV expression
+    (19) expression -> . expression MAIOR expression
+    (20) expression -> . expression MENOR expression
+    (21) expression -> . expression MAIORIGUAL expression
+    (22) expression -> . expression MENORIGUAL expression
+    (23) expression -> . expression OP_IGUALDADE expression
+    (24) expression -> . expression OP_DIFERENTE expression
+    (25) expression -> . LPAREN expression RPAREN
+    (26) expression -> . NUMERO
+    (27) expression -> . VARIAVEL
+
+    LPAREN          shift and go to state 27
+    NUMERO          shift and go to state 28
+    VARIAVEL        shift and go to state 25
+
+    expression                     shift and go to state 61
+
+state 45
+
+    (21) expression -> expression MAIORIGUAL . expression
+    (15) expression -> . expression OP_SOMA expression
+    (16) expression -> . expression OP_SUB expression
+    (17) expression -> . expression OP_MULT expression
+    (18) expression -> . expression OP_DIV expression
+    (19) expression -> . expression MAIOR expression
+    (20) expression -> . expression MENOR expression
+    (21) expression -> . expression MAIORIGUAL expression
+    (22) expression -> . expression MENORIGUAL expression
+    (23) expression -> . expression OP_IGUALDADE expression
+    (24) expression -> . expression OP_DIFERENTE expression
+    (25) expression -> . LPAREN expression RPAREN
+    (26) expression -> . NUMERO
+    (27) expression -> . VARIAVEL
+
+    LPAREN          shift and go to state 27
+    NUMERO          shift and go to state 28
+    VARIAVEL        shift and go to state 25
+
+    expression                     shift and go to state 62
+
+state 46
+
+    (22) expression -> expression MENORIGUAL . expression
+    (15) expression -> . expression OP_SOMA expression
+    (16) expression -> . expression OP_SUB expression
+    (17) expression -> . expression OP_MULT expression
+    (18) expression -> . expression OP_DIV expression
+    (19) expression -> . expression MAIOR expression
+    (20) expression -> . expression MENOR expression
+    (21) expression -> . expression MAIORIGUAL expression
+    (22) expression -> . expression MENORIGUAL expression
+    (23) expression -> . expression OP_IGUALDADE expression
+    (24) expression -> . expression OP_DIFERENTE expression
+    (25) expression -> . LPAREN expression RPAREN
+    (26) expression -> . NUMERO
+    (27) expression -> . VARIAVEL
+
+    LPAREN          shift and go to state 27
+    NUMERO          shift and go to state 28
+    VARIAVEL        shift and go to state 25
+
+    expression                     shift and go to state 63
+
+state 47
+
+    (23) expression -> expression OP_IGUALDADE . expression
+    (15) expression -> . expression OP_SOMA expression
+    (16) expression -> . expression OP_SUB expression
+    (17) expression -> . expression OP_MULT expression
+    (18) expression -> . expression OP_DIV expression
+    (19) expression -> . expression MAIOR expression
+    (20) expression -> . expression MENOR expression
+    (21) expression -> . expression MAIORIGUAL expression
+    (22) expression -> . expression MENORIGUAL expression
+    (23) expression -> . expression OP_IGUALDADE expression
+    (24) expression -> . expression OP_DIFERENTE expression
+    (25) expression -> . LPAREN expression RPAREN
+    (26) expression -> . NUMERO
+    (27) expression -> . VARIAVEL
+
+    LPAREN          shift and go to state 27
+    NUMERO          shift and go to state 28
+    VARIAVEL        shift and go to state 25
+
+    expression                     shift and go to state 64
+
+state 48
+
+    (24) expression -> expression OP_DIFERENTE . expression
+    (15) expression -> . expression OP_SOMA expression
+    (16) expression -> . expression OP_SUB expression
+    (17) expression -> . expression OP_MULT expression
+    (18) expression -> . expression OP_DIV expression
+    (19) expression -> . expression MAIOR expression
+    (20) expression -> . expression MENOR expression
+    (21) expression -> . expression MAIORIGUAL expression
+    (22) expression -> . expression MENORIGUAL expression
+    (23) expression -> . expression OP_IGUALDADE expression
+    (24) expression -> . expression OP_DIFERENTE expression
+    (25) expression -> . LPAREN expression RPAREN
+    (26) expression -> . NUMERO
+    (27) expression -> . VARIAVEL
+
+    LPAREN          shift and go to state 27
+    NUMERO          shift and go to state 28
+    VARIAVEL        shift and go to state 25
+
+    expression                     shift and go to state 65
+
+state 49
+
+    (25) expression -> LPAREN expression . RPAREN
+    (15) expression -> expression . OP_SOMA expression
+    (16) expression -> expression . OP_SUB expression
+    (17) expression -> expression . OP_MULT expression
+    (18) expression -> expression . OP_DIV expression
+    (19) expression -> expression . MAIOR expression
+    (20) expression -> expression . MENOR expression
+    (21) expression -> expression . MAIORIGUAL expression
+    (22) expression -> expression . MENORIGUAL expression
+    (23) expression -> expression . OP_IGUALDADE expression
+    (24) expression -> expression . OP_DIFERENTE expression
+
+    RPAREN          shift and go to state 66
+    OP_SOMA         shift and go to state 39
+    OP_SUB          shift and go to state 40
+    OP_MULT         shift and go to state 41
+    OP_DIV          shift and go to state 42
+    MAIOR           shift and go to state 43
+    MENOR           shift and go to state 44
+    MAIORIGUAL      shift and go to state 45
+    MENORIGUAL      shift and go to state 46
+    OP_IGUALDADE    shift and go to state 47
+    OP_DIFERENTE    shift and go to state 48
+
+
+state 50
+
+    (12) statement -> REAL VARIAVEL OP_IGUAL expression .
+    (15) expression -> expression . OP_SOMA expression
+    (16) expression -> expression . OP_SUB expression
+    (17) expression -> expression . OP_MULT expression
+    (18) expression -> expression . OP_DIV expression
+    (19) expression -> expression . MAIOR expression
+    (20) expression -> expression . MENOR expression
+    (21) expression -> expression . MAIORIGUAL expression
+    (22) expression -> expression . MENORIGUAL expression
+    (23) expression -> expression . OP_IGUALDADE expression
+    (24) expression -> expression . OP_DIFERENTE expression
+
+    INTEIRO         reduce using rule 12 (statement -> REAL VARIAVEL OP_IGUAL expression .)
+    REAL            reduce using rule 12 (statement -> REAL VARIAVEL OP_IGUAL expression .)
+    TEXTO           reduce using rule 12 (statement -> REAL VARIAVEL OP_IGUAL expression .)
+    VARIAVEL        reduce using rule 12 (statement -> REAL VARIAVEL OP_IGUAL expression .)
+    SE              reduce using rule 12 (statement -> REAL VARIAVEL OP_IGUAL expression .)
+    ENQUANTO        reduce using rule 12 (statement -> REAL VARIAVEL OP_IGUAL expression .)
+    PARA            reduce using rule 12 (statement -> REAL VARIAVEL OP_IGUAL expression .)
+    IMPRIMIR        reduce using rule 12 (statement -> REAL VARIAVEL OP_IGUAL expression .)
+    LEIA            reduce using rule 12 (statement -> REAL VARIAVEL OP_IGUAL expression .)
+    $end            reduce using rule 12 (statement -> REAL VARIAVEL OP_IGUAL expression .)
+    RBRACE          reduce using rule 12 (statement -> REAL VARIAVEL OP_IGUAL expression .)
+    OP_SOMA         shift and go to state 39
+    OP_SUB          shift and go to state 40
+    OP_MULT         shift and go to state 41
+    OP_DIV          shift and go to state 42
+    MAIOR           shift and go to state 43
+    MENOR           shift and go to state 44
+    MAIORIGUAL      shift and go to state 45
+    MENORIGUAL      shift and go to state 46
+    OP_IGUALDADE    shift and go to state 47
+    OP_DIFERENTE    shift and go to state 48
+
+
+state 51
+
+    (13) statement -> TEXTO VARIAVEL OP_IGUAL expression .
+    (15) expression -> expression . OP_SOMA expression
+    (16) expression -> expression . OP_SUB expression
+    (17) expression -> expression . OP_MULT expression
+    (18) expression -> expression . OP_DIV expression
+    (19) expression -> expression . MAIOR expression
+    (20) expression -> expression . MENOR expression
+    (21) expression -> expression . MAIORIGUAL expression
+    (22) expression -> expression . MENORIGUAL expression
+    (23) expression -> expression . OP_IGUALDADE expression
+    (24) expression -> expression . OP_DIFERENTE expression
+
+    INTEIRO         reduce using rule 13 (statement -> TEXTO VARIAVEL OP_IGUAL expression .)
+    REAL            reduce using rule 13 (statement -> TEXTO VARIAVEL OP_IGUAL expression .)
+    TEXTO           reduce using rule 13 (statement -> TEXTO VARIAVEL OP_IGUAL expression .)
+    VARIAVEL        reduce using rule 13 (statement -> TEXTO VARIAVEL OP_IGUAL expression .)
+    SE              reduce using rule 13 (statement -> TEXTO VARIAVEL OP_IGUAL expression .)
+    ENQUANTO        reduce using rule 13 (statement -> TEXTO VARIAVEL OP_IGUAL expression .)
+    PARA            reduce using rule 13 (statement -> TEXTO VARIAVEL OP_IGUAL expression .)
+    IMPRIMIR        reduce using rule 13 (statement -> TEXTO VARIAVEL OP_IGUAL expression .)
+    LEIA            reduce using rule 13 (statement -> TEXTO VARIAVEL OP_IGUAL expression .)
+    $end            reduce using rule 13 (statement -> TEXTO VARIAVEL OP_IGUAL expression .)
+    RBRACE          reduce using rule 13 (statement -> TEXTO VARIAVEL OP_IGUAL expression .)
+    OP_SOMA         shift and go to state 39
+    OP_SUB          shift and go to state 40
+    OP_MULT         shift and go to state 41
+    OP_DIV          shift and go to state 42
+    MAIOR           shift and go to state 43
+    MENOR           shift and go to state 44
+    MAIORIGUAL      shift and go to state 45
+    MENORIGUAL      shift and go to state 46
+    OP_IGUALDADE    shift and go to state 47
+    OP_DIFERENTE    shift and go to state 48
+
+
+state 52
+
+    (28) statement -> SE LPAREN expression RPAREN . LBRACE statement RBRACE SENAO LBRACE statement RBRACE
+    (29) statement -> SE LPAREN expression RPAREN . LBRACE statement RBRACE
+
+    LBRACE          shift and go to state 67
+
+
+state 53
+
+    (30) statement -> ENQUANTO LPAREN expression RPAREN . LBRACE statement RBRACE
+
+    LBRACE          shift and go to state 68
+
+
+state 54
+
+    (31) statement -> PARA LPAREN expression OP_PONTO_VIRGULA . expression OP_PONTO_VIRGULA expression RPAREN LBRACE statement RBRACE
+    (15) expression -> . expression OP_SOMA expression
+    (16) expression -> . expression OP_SUB expression
+    (17) expression -> . expression OP_MULT expression
+    (18) expression -> . expression OP_DIV expression
+    (19) expression -> . expression MAIOR expression
+    (20) expression -> . expression MENOR expression
+    (21) expression -> . expression MAIORIGUAL expression
+    (22) expression -> . expression MENORIGUAL expression
+    (23) expression -> . expression OP_IGUALDADE expression
+    (24) expression -> . expression OP_DIFERENTE expression
+    (25) expression -> . LPAREN expression RPAREN
+    (26) expression -> . NUMERO
+    (27) expression -> . VARIAVEL
+
+    LPAREN          shift and go to state 27
+    NUMERO          shift and go to state 28
+    VARIAVEL        shift and go to state 25
+
+    expression                     shift and go to state 69
+
+state 55
+
+    (32) statement -> IMPRIMIR LPAREN literal RPAREN .
+
+    INTEIRO         reduce using rule 32 (statement -> IMPRIMIR LPAREN literal RPAREN .)
+    REAL            reduce using rule 32 (statement -> IMPRIMIR LPAREN literal RPAREN .)
+    TEXTO           reduce using rule 32 (statement -> IMPRIMIR LPAREN literal RPAREN .)
+    VARIAVEL        reduce using rule 32 (statement -> IMPRIMIR LPAREN literal RPAREN .)
+    SE              reduce using rule 32 (statement -> IMPRIMIR LPAREN literal RPAREN .)
+    ENQUANTO        reduce using rule 32 (statement -> IMPRIMIR LPAREN literal RPAREN .)
+    PARA            reduce using rule 32 (statement -> IMPRIMIR LPAREN literal RPAREN .)
+    IMPRIMIR        reduce using rule 32 (statement -> IMPRIMIR LPAREN literal RPAREN .)
+    LEIA            reduce using rule 32 (statement -> IMPRIMIR LPAREN literal RPAREN .)
+    $end            reduce using rule 32 (statement -> IMPRIMIR LPAREN literal RPAREN .)
+    RBRACE          reduce using rule 32 (statement -> IMPRIMIR LPAREN literal RPAREN .)
+
+
+state 56
+
+    (15) expression -> expression OP_SOMA expression .
+    (15) expression -> expression . OP_SOMA expression
+    (16) expression -> expression . OP_SUB expression
+    (17) expression -> expression . OP_MULT expression
+    (18) expression -> expression . OP_DIV expression
+    (19) expression -> expression . MAIOR expression
+    (20) expression -> expression . MENOR expression
+    (21) expression -> expression . MAIORIGUAL expression
+    (22) expression -> expression . MENORIGUAL expression
+    (23) expression -> expression . OP_IGUALDADE expression
+    (24) expression -> expression . OP_DIFERENTE expression
+
+    OP_SOMA         reduce using rule 15 (expression -> expression OP_SOMA expression .)
+    OP_SUB          reduce using rule 15 (expression -> expression OP_SOMA expression .)
+    MAIOR           reduce using rule 15 (expression -> expression OP_SOMA expression .)
+    MENOR           reduce using rule 15 (expression -> expression OP_SOMA expression .)
+    MAIORIGUAL      reduce using rule 15 (expression -> expression OP_SOMA expression .)
+    MENORIGUAL      reduce using rule 15 (expression -> expression OP_SOMA expression .)
+    OP_IGUALDADE    reduce using rule 15 (expression -> expression OP_SOMA expression .)
+    OP_DIFERENTE    reduce using rule 15 (expression -> expression OP_SOMA expression .)
+    INTEIRO         reduce using rule 15 (expression -> expression OP_SOMA expression .)
+    REAL            reduce using rule 15 (expression -> expression OP_SOMA expression .)
+    TEXTO           reduce using rule 15 (expression -> expression OP_SOMA expression .)
+    VARIAVEL        reduce using rule 15 (expression -> expression OP_SOMA expression .)
+    SE              reduce using rule 15 (expression -> expression OP_SOMA expression .)
+    ENQUANTO        reduce using rule 15 (expression -> expression OP_SOMA expression .)
+    PARA            reduce using rule 15 (expression -> expression OP_SOMA expression .)
+    IMPRIMIR        reduce using rule 15 (expression -> expression OP_SOMA expression .)
+    LEIA            reduce using rule 15 (expression -> expression OP_SOMA expression .)
+    $end            reduce using rule 15 (expression -> expression OP_SOMA expression .)
+    RBRACE          reduce using rule 15 (expression -> expression OP_SOMA expression .)
+    RPAREN          reduce using rule 15 (expression -> expression OP_SOMA expression .)
+    OP_PONTO_VIRGULA reduce using rule 15 (expression -> expression OP_SOMA expression .)
+    OP_MULT         shift and go to state 41
+    OP_DIV          shift and go to state 42
+
+  ! OP_MULT         [ reduce using rule 15 (expression -> expression OP_SOMA expression .) ]
+  ! OP_DIV          [ reduce using rule 15 (expression -> expression OP_SOMA expression .) ]
+  ! OP_SOMA         [ shift and go to state 39 ]
+  ! OP_SUB          [ shift and go to state 40 ]
+  ! MAIOR           [ shift and go to state 43 ]
+  ! MENOR           [ shift and go to state 44 ]
+  ! MAIORIGUAL      [ shift and go to state 45 ]
+  ! MENORIGUAL      [ shift and go to state 46 ]
+  ! OP_IGUALDADE    [ shift and go to state 47 ]
+  ! OP_DIFERENTE    [ shift and go to state 48 ]
+
+
+state 57
+
+    (16) expression -> expression OP_SUB expression .
+    (15) expression -> expression . OP_SOMA expression
+    (16) expression -> expression . OP_SUB expression
+    (17) expression -> expression . OP_MULT expression
+    (18) expression -> expression . OP_DIV expression
+    (19) expression -> expression . MAIOR expression
+    (20) expression -> expression . MENOR expression
+    (21) expression -> expression . MAIORIGUAL expression
+    (22) expression -> expression . MENORIGUAL expression
+    (23) expression -> expression . OP_IGUALDADE expression
+    (24) expression -> expression . OP_DIFERENTE expression
+
+    OP_SOMA         reduce using rule 16 (expression -> expression OP_SUB expression .)
+    OP_SUB          reduce using rule 16 (expression -> expression OP_SUB expression .)
+    MAIOR           reduce using rule 16 (expression -> expression OP_SUB expression .)
+    MENOR           reduce using rule 16 (expression -> expression OP_SUB expression .)
+    MAIORIGUAL      reduce using rule 16 (expression -> expression OP_SUB expression .)
+    MENORIGUAL      reduce using rule 16 (expression -> expression OP_SUB expression .)
+    OP_IGUALDADE    reduce using rule 16 (expression -> expression OP_SUB expression .)
+    OP_DIFERENTE    reduce using rule 16 (expression -> expression OP_SUB expression .)
+    INTEIRO         reduce using rule 16 (expression -> expression OP_SUB expression .)
+    REAL            reduce using rule 16 (expression -> expression OP_SUB expression .)
+    TEXTO           reduce using rule 16 (expression -> expression OP_SUB expression .)
+    VARIAVEL        reduce using rule 16 (expression -> expression OP_SUB expression .)
+    SE              reduce using rule 16 (expression -> expression OP_SUB expression .)
+    ENQUANTO        reduce using rule 16 (expression -> expression OP_SUB expression .)
+    PARA            reduce using rule 16 (expression -> expression OP_SUB expression .)
+    IMPRIMIR        reduce using rule 16 (expression -> expression OP_SUB expression .)
+    LEIA            reduce using rule 16 (expression -> expression OP_SUB expression .)
+    $end            reduce using rule 16 (expression -> expression OP_SUB expression .)
+    RBRACE          reduce using rule 16 (expression -> expression OP_SUB expression .)
+    RPAREN          reduce using rule 16 (expression -> expression OP_SUB expression .)
+    OP_PONTO_VIRGULA reduce using rule 16 (expression -> expression OP_SUB expression .)
+    OP_MULT         shift and go to state 41
+    OP_DIV          shift and go to state 42
+
+  ! OP_MULT         [ reduce using rule 16 (expression -> expression OP_SUB expression .) ]
+  ! OP_DIV          [ reduce using rule 16 (expression -> expression OP_SUB expression .) ]
+  ! OP_SOMA         [ shift and go to state 39 ]
+  ! OP_SUB          [ shift and go to state 40 ]
+  ! MAIOR           [ shift and go to state 43 ]
+  ! MENOR           [ shift and go to state 44 ]
+  ! MAIORIGUAL      [ shift and go to state 45 ]
+  ! MENORIGUAL      [ shift and go to state 46 ]
+  ! OP_IGUALDADE    [ shift and go to state 47 ]
+  ! OP_DIFERENTE    [ shift and go to state 48 ]
+
+
+state 58
+
+    (17) expression -> expression OP_MULT expression .
+    (15) expression -> expression . OP_SOMA expression
+    (16) expression -> expression . OP_SUB expression
+    (17) expression -> expression . OP_MULT expression
+    (18) expression -> expression . OP_DIV expression
+    (19) expression -> expression . MAIOR expression
+    (20) expression -> expression . MENOR expression
+    (21) expression -> expression . MAIORIGUAL expression
+    (22) expression -> expression . MENORIGUAL expression
+    (23) expression -> expression . OP_IGUALDADE expression
+    (24) expression -> expression . OP_DIFERENTE expression
+
+    OP_SOMA         reduce using rule 17 (expression -> expression OP_MULT expression .)
+    OP_SUB          reduce using rule 17 (expression -> expression OP_MULT expression .)
+    OP_MULT         reduce using rule 17 (expression -> expression OP_MULT expression .)
+    OP_DIV          reduce using rule 17 (expression -> expression OP_MULT expression .)
+    MAIOR           reduce using rule 17 (expression -> expression OP_MULT expression .)
+    MENOR           reduce using rule 17 (expression -> expression OP_MULT expression .)
+    MAIORIGUAL      reduce using rule 17 (expression -> expression OP_MULT expression .)
+    MENORIGUAL      reduce using rule 17 (expression -> expression OP_MULT expression .)
+    OP_IGUALDADE    reduce using rule 17 (expression -> expression OP_MULT expression .)
+    OP_DIFERENTE    reduce using rule 17 (expression -> expression OP_MULT expression .)
+    INTEIRO         reduce using rule 17 (expression -> expression OP_MULT expression .)
+    REAL            reduce using rule 17 (expression -> expression OP_MULT expression .)
+    TEXTO           reduce using rule 17 (expression -> expression OP_MULT expression .)
+    VARIAVEL        reduce using rule 17 (expression -> expression OP_MULT expression .)
+    SE              reduce using rule 17 (expression -> expression OP_MULT expression .)
+    ENQUANTO        reduce using rule 17 (expression -> expression OP_MULT expression .)
+    PARA            reduce using rule 17 (expression -> expression OP_MULT expression .)
+    IMPRIMIR        reduce using rule 17 (expression -> expression OP_MULT expression .)
+    LEIA            reduce using rule 17 (expression -> expression OP_MULT expression .)
+    $end            reduce using rule 17 (expression -> expression OP_MULT expression .)
+    RBRACE          reduce using rule 17 (expression -> expression OP_MULT expression .)
+    RPAREN          reduce using rule 17 (expression -> expression OP_MULT expression .)
+    OP_PONTO_VIRGULA reduce using rule 17 (expression -> expression OP_MULT expression .)
+
+  ! OP_SOMA         [ shift and go to state 39 ]
+  ! OP_SUB          [ shift and go to state 40 ]
+  ! OP_MULT         [ shift and go to state 41 ]
+  ! OP_DIV          [ shift and go to state 42 ]
+  ! MAIOR           [ shift and go to state 43 ]
+  ! MENOR           [ shift and go to state 44 ]
+  ! MAIORIGUAL      [ shift and go to state 45 ]
+  ! MENORIGUAL      [ shift and go to state 46 ]
+  ! OP_IGUALDADE    [ shift and go to state 47 ]
+  ! OP_DIFERENTE    [ shift and go to state 48 ]
+
+
+state 59
+
+    (18) expression -> expression OP_DIV expression .
+    (15) expression -> expression . OP_SOMA expression
+    (16) expression -> expression . OP_SUB expression
+    (17) expression -> expression . OP_MULT expression
+    (18) expression -> expression . OP_DIV expression
+    (19) expression -> expression . MAIOR expression
+    (20) expression -> expression . MENOR expression
+    (21) expression -> expression . MAIORIGUAL expression
+    (22) expression -> expression . MENORIGUAL expression
+    (23) expression -> expression . OP_IGUALDADE expression
+    (24) expression -> expression . OP_DIFERENTE expression
+
+    OP_SOMA         reduce using rule 18 (expression -> expression OP_DIV expression .)
+    OP_SUB          reduce using rule 18 (expression -> expression OP_DIV expression .)
+    OP_MULT         reduce using rule 18 (expression -> expression OP_DIV expression .)
+    OP_DIV          reduce using rule 18 (expression -> expression OP_DIV expression .)
+    MAIOR           reduce using rule 18 (expression -> expression OP_DIV expression .)
+    MENOR           reduce using rule 18 (expression -> expression OP_DIV expression .)
+    MAIORIGUAL      reduce using rule 18 (expression -> expression OP_DIV expression .)
+    MENORIGUAL      reduce using rule 18 (expression -> expression OP_DIV expression .)
+    OP_IGUALDADE    reduce using rule 18 (expression -> expression OP_DIV expression .)
+    OP_DIFERENTE    reduce using rule 18 (expression -> expression OP_DIV expression .)
+    INTEIRO         reduce using rule 18 (expression -> expression OP_DIV expression .)
+    REAL            reduce using rule 18 (expression -> expression OP_DIV expression .)
+    TEXTO           reduce using rule 18 (expression -> expression OP_DIV expression .)
+    VARIAVEL        reduce using rule 18 (expression -> expression OP_DIV expression .)
+    SE              reduce using rule 18 (expression -> expression OP_DIV expression .)
+    ENQUANTO        reduce using rule 18 (expression -> expression OP_DIV expression .)
+    PARA            reduce using rule 18 (expression -> expression OP_DIV expression .)
+    IMPRIMIR        reduce using rule 18 (expression -> expression OP_DIV expression .)
+    LEIA            reduce using rule 18 (expression -> expression OP_DIV expression .)
+    $end            reduce using rule 18 (expression -> expression OP_DIV expression .)
+    RBRACE          reduce using rule 18 (expression -> expression OP_DIV expression .)
+    RPAREN          reduce using rule 18 (expression -> expression OP_DIV expression .)
+    OP_PONTO_VIRGULA reduce using rule 18 (expression -> expression OP_DIV expression .)
+
+  ! OP_SOMA         [ shift and go to state 39 ]
+  ! OP_SUB          [ shift and go to state 40 ]
+  ! OP_MULT         [ shift and go to state 41 ]
+  ! OP_DIV          [ shift and go to state 42 ]
+  ! MAIOR           [ shift and go to state 43 ]
+  ! MENOR           [ shift and go to state 44 ]
+  ! MAIORIGUAL      [ shift and go to state 45 ]
+  ! MENORIGUAL      [ shift and go to state 46 ]
+  ! OP_IGUALDADE    [ shift and go to state 47 ]
+  ! OP_DIFERENTE    [ shift and go to state 48 ]
+
+
+state 60
+
+    (19) expression -> expression MAIOR expression .
+    (15) expression -> expression . OP_SOMA expression
+    (16) expression -> expression . OP_SUB expression
+    (17) expression -> expression . OP_MULT expression
+    (18) expression -> expression . OP_DIV expression
+    (19) expression -> expression . MAIOR expression
+    (20) expression -> expression . MENOR expression
+    (21) expression -> expression . MAIORIGUAL expression
+    (22) expression -> expression . MENORIGUAL expression
+    (23) expression -> expression . OP_IGUALDADE expression
+    (24) expression -> expression . OP_DIFERENTE expression
+
+  ! shift/reduce conflict for OP_SOMA resolved as shift
+  ! shift/reduce conflict for OP_SUB resolved as shift
+  ! shift/reduce conflict for OP_MULT resolved as shift
+  ! shift/reduce conflict for OP_DIV resolved as shift
+  ! shift/reduce conflict for MAIOR resolved as shift
+  ! shift/reduce conflict for MENOR resolved as shift
+  ! shift/reduce conflict for MAIORIGUAL resolved as shift
+  ! shift/reduce conflict for MENORIGUAL resolved as shift
+  ! shift/reduce conflict for OP_IGUALDADE resolved as shift
+  ! shift/reduce conflict for OP_DIFERENTE resolved as shift
+    INTEIRO         reduce using rule 19 (expression -> expression MAIOR expression .)
+    REAL            reduce using rule 19 (expression -> expression MAIOR expression .)
+    TEXTO           reduce using rule 19 (expression -> expression MAIOR expression .)
+    VARIAVEL        reduce using rule 19 (expression -> expression MAIOR expression .)
+    SE              reduce using rule 19 (expression -> expression MAIOR expression .)
+    ENQUANTO        reduce using rule 19 (expression -> expression MAIOR expression .)
+    PARA            reduce using rule 19 (expression -> expression MAIOR expression .)
+    IMPRIMIR        reduce using rule 19 (expression -> expression MAIOR expression .)
+    LEIA            reduce using rule 19 (expression -> expression MAIOR expression .)
+    $end            reduce using rule 19 (expression -> expression MAIOR expression .)
+    RBRACE          reduce using rule 19 (expression -> expression MAIOR expression .)
+    RPAREN          reduce using rule 19 (expression -> expression MAIOR expression .)
+    OP_PONTO_VIRGULA reduce using rule 19 (expression -> expression MAIOR expression .)
+    OP_SOMA         shift and go to state 39
+    OP_SUB          shift and go to state 40
+    OP_MULT         shift and go to state 41
+    OP_DIV          shift and go to state 42
+    MAIOR           shift and go to state 43
+    MENOR           shift and go to state 44
+    MAIORIGUAL      shift and go to state 45
+    MENORIGUAL      shift and go to state 46
+    OP_IGUALDADE    shift and go to state 47
+    OP_DIFERENTE    shift and go to state 48
+
+  ! OP_SOMA         [ reduce using rule 19 (expression -> expression MAIOR expression .) ]
+  ! OP_SUB          [ reduce using rule 19 (expression -> expression MAIOR expression .) ]
+  ! OP_MULT         [ reduce using rule 19 (expression -> expression MAIOR expression .) ]
+  ! OP_DIV          [ reduce using rule 19 (expression -> expression MAIOR expression .) ]
+  ! MAIOR           [ reduce using rule 19 (expression -> expression MAIOR expression .) ]
+  ! MENOR           [ reduce using rule 19 (expression -> expression MAIOR expression .) ]
+  ! MAIORIGUAL      [ reduce using rule 19 (expression -> expression MAIOR expression .) ]
+  ! MENORIGUAL      [ reduce using rule 19 (expression -> expression MAIOR expression .) ]
+  ! OP_IGUALDADE    [ reduce using rule 19 (expression -> expression MAIOR expression .) ]
+  ! OP_DIFERENTE    [ reduce using rule 19 (expression -> expression MAIOR expression .) ]
+
+
+state 61
+
+    (20) expression -> expression MENOR expression .
+    (15) expression -> expression . OP_SOMA expression
+    (16) expression -> expression . OP_SUB expression
+    (17) expression -> expression . OP_MULT expression
+    (18) expression -> expression . OP_DIV expression
+    (19) expression -> expression . MAIOR expression
+    (20) expression -> expression . MENOR expression
+    (21) expression -> expression . MAIORIGUAL expression
+    (22) expression -> expression . MENORIGUAL expression
+    (23) expression -> expression . OP_IGUALDADE expression
+    (24) expression -> expression . OP_DIFERENTE expression
+
+  ! shift/reduce conflict for OP_SOMA resolved as shift
+  ! shift/reduce conflict for OP_SUB resolved as shift
+  ! shift/reduce conflict for OP_MULT resolved as shift
+  ! shift/reduce conflict for OP_DIV resolved as shift
+  ! shift/reduce conflict for MAIOR resolved as shift
+  ! shift/reduce conflict for MENOR resolved as shift
+  ! shift/reduce conflict for MAIORIGUAL resolved as shift
+  ! shift/reduce conflict for MENORIGUAL resolved as shift
+  ! shift/reduce conflict for OP_IGUALDADE resolved as shift
+  ! shift/reduce conflict for OP_DIFERENTE resolved as shift
+    INTEIRO         reduce using rule 20 (expression -> expression MENOR expression .)
+    REAL            reduce using rule 20 (expression -> expression MENOR expression .)
+    TEXTO           reduce using rule 20 (expression -> expression MENOR expression .)
+    VARIAVEL        reduce using rule 20 (expression -> expression MENOR expression .)
+    SE              reduce using rule 20 (expression -> expression MENOR expression .)
+    ENQUANTO        reduce using rule 20 (expression -> expression MENOR expression .)
+    PARA            reduce using rule 20 (expression -> expression MENOR expression .)
+    IMPRIMIR        reduce using rule 20 (expression -> expression MENOR expression .)
+    LEIA            reduce using rule 20 (expression -> expression MENOR expression .)
+    $end            reduce using rule 20 (expression -> expression MENOR expression .)
+    RBRACE          reduce using rule 20 (expression -> expression MENOR expression .)
+    RPAREN          reduce using rule 20 (expression -> expression MENOR expression .)
+    OP_PONTO_VIRGULA reduce using rule 20 (expression -> expression MENOR expression .)
+    OP_SOMA         shift and go to state 39
+    OP_SUB          shift and go to state 40
+    OP_MULT         shift and go to state 41
+    OP_DIV          shift and go to state 42
+    MAIOR           shift and go to state 43
+    MENOR           shift and go to state 44
+    MAIORIGUAL      shift and go to state 45
+    MENORIGUAL      shift and go to state 46
+    OP_IGUALDADE    shift and go to state 47
+    OP_DIFERENTE    shift and go to state 48
+
+  ! OP_SOMA         [ reduce using rule 20 (expression -> expression MENOR expression .) ]
+  ! OP_SUB          [ reduce using rule 20 (expression -> expression MENOR expression .) ]
+  ! OP_MULT         [ reduce using rule 20 (expression -> expression MENOR expression .) ]
+  ! OP_DIV          [ reduce using rule 20 (expression -> expression MENOR expression .) ]
+  ! MAIOR           [ reduce using rule 20 (expression -> expression MENOR expression .) ]
+  ! MENOR           [ reduce using rule 20 (expression -> expression MENOR expression .) ]
+  ! MAIORIGUAL      [ reduce using rule 20 (expression -> expression MENOR expression .) ]
+  ! MENORIGUAL      [ reduce using rule 20 (expression -> expression MENOR expression .) ]
+  ! OP_IGUALDADE    [ reduce using rule 20 (expression -> expression MENOR expression .) ]
+  ! OP_DIFERENTE    [ reduce using rule 20 (expression -> expression MENOR expression .) ]
+
+
+state 62
+
+    (21) expression -> expression MAIORIGUAL expression .
+    (15) expression -> expression . OP_SOMA expression
+    (16) expression -> expression . OP_SUB expression
+    (17) expression -> expression . OP_MULT expression
+    (18) expression -> expression . OP_DIV expression
+    (19) expression -> expression . MAIOR expression
+    (20) expression -> expression . MENOR expression
+    (21) expression -> expression . MAIORIGUAL expression
+    (22) expression -> expression . MENORIGUAL expression
+    (23) expression -> expression . OP_IGUALDADE expression
+    (24) expression -> expression . OP_DIFERENTE expression
+
+  ! shift/reduce conflict for OP_SOMA resolved as shift
+  ! shift/reduce conflict for OP_SUB resolved as shift
+  ! shift/reduce conflict for OP_MULT resolved as shift
+  ! shift/reduce conflict for OP_DIV resolved as shift
+  ! shift/reduce conflict for MAIOR resolved as shift
+  ! shift/reduce conflict for MENOR resolved as shift
+  ! shift/reduce conflict for MAIORIGUAL resolved as shift
+  ! shift/reduce conflict for MENORIGUAL resolved as shift
+  ! shift/reduce conflict for OP_IGUALDADE resolved as shift
+  ! shift/reduce conflict for OP_DIFERENTE resolved as shift
+    INTEIRO         reduce using rule 21 (expression -> expression MAIORIGUAL expression .)
+    REAL            reduce using rule 21 (expression -> expression MAIORIGUAL expression .)
+    TEXTO           reduce using rule 21 (expression -> expression MAIORIGUAL expression .)
+    VARIAVEL        reduce using rule 21 (expression -> expression MAIORIGUAL expression .)
+    SE              reduce using rule 21 (expression -> expression MAIORIGUAL expression .)
+    ENQUANTO        reduce using rule 21 (expression -> expression MAIORIGUAL expression .)
+    PARA            reduce using rule 21 (expression -> expression MAIORIGUAL expression .)
+    IMPRIMIR        reduce using rule 21 (expression -> expression MAIORIGUAL expression .)
+    LEIA            reduce using rule 21 (expression -> expression MAIORIGUAL expression .)
+    $end            reduce using rule 21 (expression -> expression MAIORIGUAL expression .)
+    RBRACE          reduce using rule 21 (expression -> expression MAIORIGUAL expression .)
+    RPAREN          reduce using rule 21 (expression -> expression MAIORIGUAL expression .)
+    OP_PONTO_VIRGULA reduce using rule 21 (expression -> expression MAIORIGUAL expression .)
+    OP_SOMA         shift and go to state 39
+    OP_SUB          shift and go to state 40
+    OP_MULT         shift and go to state 41
+    OP_DIV          shift and go to state 42
+    MAIOR           shift and go to state 43
+    MENOR           shift and go to state 44
+    MAIORIGUAL      shift and go to state 45
+    MENORIGUAL      shift and go to state 46
+    OP_IGUALDADE    shift and go to state 47
+    OP_DIFERENTE    shift and go to state 48
+
+  ! OP_SOMA         [ reduce using rule 21 (expression -> expression MAIORIGUAL expression .) ]
+  ! OP_SUB          [ reduce using rule 21 (expression -> expression MAIORIGUAL expression .) ]
+  ! OP_MULT         [ reduce using rule 21 (expression -> expression MAIORIGUAL expression .) ]
+  ! OP_DIV          [ reduce using rule 21 (expression -> expression MAIORIGUAL expression .) ]
+  ! MAIOR           [ reduce using rule 21 (expression -> expression MAIORIGUAL expression .) ]
+  ! MENOR           [ reduce using rule 21 (expression -> expression MAIORIGUAL expression .) ]
+  ! MAIORIGUAL      [ reduce using rule 21 (expression -> expression MAIORIGUAL expression .) ]
+  ! MENORIGUAL      [ reduce using rule 21 (expression -> expression MAIORIGUAL expression .) ]
+  ! OP_IGUALDADE    [ reduce using rule 21 (expression -> expression MAIORIGUAL expression .) ]
+  ! OP_DIFERENTE    [ reduce using rule 21 (expression -> expression MAIORIGUAL expression .) ]
+
+
+state 63
+
+    (22) expression -> expression MENORIGUAL expression .
+    (15) expression -> expression . OP_SOMA expression
+    (16) expression -> expression . OP_SUB expression
+    (17) expression -> expression . OP_MULT expression
+    (18) expression -> expression . OP_DIV expression
+    (19) expression -> expression . MAIOR expression
+    (20) expression -> expression . MENOR expression
+    (21) expression -> expression . MAIORIGUAL expression
+    (22) expression -> expression . MENORIGUAL expression
+    (23) expression -> expression . OP_IGUALDADE expression
+    (24) expression -> expression . OP_DIFERENTE expression
+
+  ! shift/reduce conflict for OP_SOMA resolved as shift
+  ! shift/reduce conflict for OP_SUB resolved as shift
+  ! shift/reduce conflict for OP_MULT resolved as shift
+  ! shift/reduce conflict for OP_DIV resolved as shift
+  ! shift/reduce conflict for MAIOR resolved as shift
+  ! shift/reduce conflict for MENOR resolved as shift
+  ! shift/reduce conflict for MAIORIGUAL resolved as shift
+  ! shift/reduce conflict for MENORIGUAL resolved as shift
+  ! shift/reduce conflict for OP_IGUALDADE resolved as shift
+  ! shift/reduce conflict for OP_DIFERENTE resolved as shift
+    INTEIRO         reduce using rule 22 (expression -> expression MENORIGUAL expression .)
+    REAL            reduce using rule 22 (expression -> expression MENORIGUAL expression .)
+    TEXTO           reduce using rule 22 (expression -> expression MENORIGUAL expression .)
+    VARIAVEL        reduce using rule 22 (expression -> expression MENORIGUAL expression .)
+    SE              reduce using rule 22 (expression -> expression MENORIGUAL expression .)
+    ENQUANTO        reduce using rule 22 (expression -> expression MENORIGUAL expression .)
+    PARA            reduce using rule 22 (expression -> expression MENORIGUAL expression .)
+    IMPRIMIR        reduce using rule 22 (expression -> expression MENORIGUAL expression .)
+    LEIA            reduce using rule 22 (expression -> expression MENORIGUAL expression .)
+    $end            reduce using rule 22 (expression -> expression MENORIGUAL expression .)
+    RBRACE          reduce using rule 22 (expression -> expression MENORIGUAL expression .)
+    RPAREN          reduce using rule 22 (expression -> expression MENORIGUAL expression .)
+    OP_PONTO_VIRGULA reduce using rule 22 (expression -> expression MENORIGUAL expression .)
+    OP_SOMA         shift and go to state 39
+    OP_SUB          shift and go to state 40
+    OP_MULT         shift and go to state 41
+    OP_DIV          shift and go to state 42
+    MAIOR           shift and go to state 43
+    MENOR           shift and go to state 44
+    MAIORIGUAL      shift and go to state 45
+    MENORIGUAL      shift and go to state 46
+    OP_IGUALDADE    shift and go to state 47
+    OP_DIFERENTE    shift and go to state 48
+
+  ! OP_SOMA         [ reduce using rule 22 (expression -> expression MENORIGUAL expression .) ]
+  ! OP_SUB          [ reduce using rule 22 (expression -> expression MENORIGUAL expression .) ]
+  ! OP_MULT         [ reduce using rule 22 (expression -> expression MENORIGUAL expression .) ]
+  ! OP_DIV          [ reduce using rule 22 (expression -> expression MENORIGUAL expression .) ]
+  ! MAIOR           [ reduce using rule 22 (expression -> expression MENORIGUAL expression .) ]
+  ! MENOR           [ reduce using rule 22 (expression -> expression MENORIGUAL expression .) ]
+  ! MAIORIGUAL      [ reduce using rule 22 (expression -> expression MENORIGUAL expression .) ]
+  ! MENORIGUAL      [ reduce using rule 22 (expression -> expression MENORIGUAL expression .) ]
+  ! OP_IGUALDADE    [ reduce using rule 22 (expression -> expression MENORIGUAL expression .) ]
+  ! OP_DIFERENTE    [ reduce using rule 22 (expression -> expression MENORIGUAL expression .) ]
+
+
+state 64
+
+    (23) expression -> expression OP_IGUALDADE expression .
+    (15) expression -> expression . OP_SOMA expression
+    (16) expression -> expression . OP_SUB expression
+    (17) expression -> expression . OP_MULT expression
+    (18) expression -> expression . OP_DIV expression
+    (19) expression -> expression . MAIOR expression
+    (20) expression -> expression . MENOR expression
+    (21) expression -> expression . MAIORIGUAL expression
+    (22) expression -> expression . MENORIGUAL expression
+    (23) expression -> expression . OP_IGUALDADE expression
+    (24) expression -> expression . OP_DIFERENTE expression
+
+  ! shift/reduce conflict for OP_SOMA resolved as shift
+  ! shift/reduce conflict for OP_SUB resolved as shift
+  ! shift/reduce conflict for OP_MULT resolved as shift
+  ! shift/reduce conflict for OP_DIV resolved as shift
+  ! shift/reduce conflict for MAIOR resolved as shift
+  ! shift/reduce conflict for MENOR resolved as shift
+  ! shift/reduce conflict for MAIORIGUAL resolved as shift
+  ! shift/reduce conflict for MENORIGUAL resolved as shift
+  ! shift/reduce conflict for OP_IGUALDADE resolved as shift
+  ! shift/reduce conflict for OP_DIFERENTE resolved as shift
+    INTEIRO         reduce using rule 23 (expression -> expression OP_IGUALDADE expression .)
+    REAL            reduce using rule 23 (expression -> expression OP_IGUALDADE expression .)
+    TEXTO           reduce using rule 23 (expression -> expression OP_IGUALDADE expression .)
+    VARIAVEL        reduce using rule 23 (expression -> expression OP_IGUALDADE expression .)
+    SE              reduce using rule 23 (expression -> expression OP_IGUALDADE expression .)
+    ENQUANTO        reduce using rule 23 (expression -> expression OP_IGUALDADE expression .)
+    PARA            reduce using rule 23 (expression -> expression OP_IGUALDADE expression .)
+    IMPRIMIR        reduce using rule 23 (expression -> expression OP_IGUALDADE expression .)
+    LEIA            reduce using rule 23 (expression -> expression OP_IGUALDADE expression .)
+    $end            reduce using rule 23 (expression -> expression OP_IGUALDADE expression .)
+    RBRACE          reduce using rule 23 (expression -> expression OP_IGUALDADE expression .)
+    RPAREN          reduce using rule 23 (expression -> expression OP_IGUALDADE expression .)
+    OP_PONTO_VIRGULA reduce using rule 23 (expression -> expression OP_IGUALDADE expression .)
+    OP_SOMA         shift and go to state 39
+    OP_SUB          shift and go to state 40
+    OP_MULT         shift and go to state 41
+    OP_DIV          shift and go to state 42
+    MAIOR           shift and go to state 43
+    MENOR           shift and go to state 44
+    MAIORIGUAL      shift and go to state 45
+    MENORIGUAL      shift and go to state 46
+    OP_IGUALDADE    shift and go to state 47
+    OP_DIFERENTE    shift and go to state 48
+
+  ! OP_SOMA         [ reduce using rule 23 (expression -> expression OP_IGUALDADE expression .) ]
+  ! OP_SUB          [ reduce using rule 23 (expression -> expression OP_IGUALDADE expression .) ]
+  ! OP_MULT         [ reduce using rule 23 (expression -> expression OP_IGUALDADE expression .) ]
+  ! OP_DIV          [ reduce using rule 23 (expression -> expression OP_IGUALDADE expression .) ]
+  ! MAIOR           [ reduce using rule 23 (expression -> expression OP_IGUALDADE expression .) ]
+  ! MENOR           [ reduce using rule 23 (expression -> expression OP_IGUALDADE expression .) ]
+  ! MAIORIGUAL      [ reduce using rule 23 (expression -> expression OP_IGUALDADE expression .) ]
+  ! MENORIGUAL      [ reduce using rule 23 (expression -> expression OP_IGUALDADE expression .) ]
+  ! OP_IGUALDADE    [ reduce using rule 23 (expression -> expression OP_IGUALDADE expression .) ]
+  ! OP_DIFERENTE    [ reduce using rule 23 (expression -> expression OP_IGUALDADE expression .) ]
+
+
+state 65
+
+    (24) expression -> expression OP_DIFERENTE expression .
+    (15) expression -> expression . OP_SOMA expression
+    (16) expression -> expression . OP_SUB expression
+    (17) expression -> expression . OP_MULT expression
+    (18) expression -> expression . OP_DIV expression
+    (19) expression -> expression . MAIOR expression
+    (20) expression -> expression . MENOR expression
+    (21) expression -> expression . MAIORIGUAL expression
+    (22) expression -> expression . MENORIGUAL expression
+    (23) expression -> expression . OP_IGUALDADE expression
+    (24) expression -> expression . OP_DIFERENTE expression
+
+  ! shift/reduce conflict for OP_SOMA resolved as shift
+  ! shift/reduce conflict for OP_SUB resolved as shift
+  ! shift/reduce conflict for OP_MULT resolved as shift
+  ! shift/reduce conflict for OP_DIV resolved as shift
+  ! shift/reduce conflict for MAIOR resolved as shift
+  ! shift/reduce conflict for MENOR resolved as shift
+  ! shift/reduce conflict for MAIORIGUAL resolved as shift
+  ! shift/reduce conflict for MENORIGUAL resolved as shift
+  ! shift/reduce conflict for OP_IGUALDADE resolved as shift
+  ! shift/reduce conflict for OP_DIFERENTE resolved as shift
+    INTEIRO         reduce using rule 24 (expression -> expression OP_DIFERENTE expression .)
+    REAL            reduce using rule 24 (expression -> expression OP_DIFERENTE expression .)
+    TEXTO           reduce using rule 24 (expression -> expression OP_DIFERENTE expression .)
+    VARIAVEL        reduce using rule 24 (expression -> expression OP_DIFERENTE expression .)
+    SE              reduce using rule 24 (expression -> expression OP_DIFERENTE expression .)
+    ENQUANTO        reduce using rule 24 (expression -> expression OP_DIFERENTE expression .)
+    PARA            reduce using rule 24 (expression -> expression OP_DIFERENTE expression .)
+    IMPRIMIR        reduce using rule 24 (expression -> expression OP_DIFERENTE expression .)
+    LEIA            reduce using rule 24 (expression -> expression OP_DIFERENTE expression .)
+    $end            reduce using rule 24 (expression -> expression OP_DIFERENTE expression .)
+    RBRACE          reduce using rule 24 (expression -> expression OP_DIFERENTE expression .)
+    RPAREN          reduce using rule 24 (expression -> expression OP_DIFERENTE expression .)
+    OP_PONTO_VIRGULA reduce using rule 24 (expression -> expression OP_DIFERENTE expression .)
+    OP_SOMA         shift and go to state 39
+    OP_SUB          shift and go to state 40
+    OP_MULT         shift and go to state 41
+    OP_DIV          shift and go to state 42
+    MAIOR           shift and go to state 43
+    MENOR           shift and go to state 44
+    MAIORIGUAL      shift and go to state 45
+    MENORIGUAL      shift and go to state 46
+    OP_IGUALDADE    shift and go to state 47
+    OP_DIFERENTE    shift and go to state 48
+
+  ! OP_SOMA         [ reduce using rule 24 (expression -> expression OP_DIFERENTE expression .) ]
+  ! OP_SUB          [ reduce using rule 24 (expression -> expression OP_DIFERENTE expression .) ]
+  ! OP_MULT         [ reduce using rule 24 (expression -> expression OP_DIFERENTE expression .) ]
+  ! OP_DIV          [ reduce using rule 24 (expression -> expression OP_DIFERENTE expression .) ]
+  ! MAIOR           [ reduce using rule 24 (expression -> expression OP_DIFERENTE expression .) ]
+  ! MENOR           [ reduce using rule 24 (expression -> expression OP_DIFERENTE expression .) ]
+  ! MAIORIGUAL      [ reduce using rule 24 (expression -> expression OP_DIFERENTE expression .) ]
+  ! MENORIGUAL      [ reduce using rule 24 (expression -> expression OP_DIFERENTE expression .) ]
+  ! OP_IGUALDADE    [ reduce using rule 24 (expression -> expression OP_DIFERENTE expression .) ]
+  ! OP_DIFERENTE    [ reduce using rule 24 (expression -> expression OP_DIFERENTE expression .) ]
+
+
+state 66
+
+    (25) expression -> LPAREN expression RPAREN .
+
+    OP_SOMA         reduce using rule 25 (expression -> LPAREN expression RPAREN .)
+    OP_SUB          reduce using rule 25 (expression -> LPAREN expression RPAREN .)
+    OP_MULT         reduce using rule 25 (expression -> LPAREN expression RPAREN .)
+    OP_DIV          reduce using rule 25 (expression -> LPAREN expression RPAREN .)
+    MAIOR           reduce using rule 25 (expression -> LPAREN expression RPAREN .)
+    MENOR           reduce using rule 25 (expression -> LPAREN expression RPAREN .)
+    MAIORIGUAL      reduce using rule 25 (expression -> LPAREN expression RPAREN .)
+    MENORIGUAL      reduce using rule 25 (expression -> LPAREN expression RPAREN .)
+    OP_IGUALDADE    reduce using rule 25 (expression -> LPAREN expression RPAREN .)
+    OP_DIFERENTE    reduce using rule 25 (expression -> LPAREN expression RPAREN .)
+    INTEIRO         reduce using rule 25 (expression -> LPAREN expression RPAREN .)
+    REAL            reduce using rule 25 (expression -> LPAREN expression RPAREN .)
+    TEXTO           reduce using rule 25 (expression -> LPAREN expression RPAREN .)
+    VARIAVEL        reduce using rule 25 (expression -> LPAREN expression RPAREN .)
+    SE              reduce using rule 25 (expression -> LPAREN expression RPAREN .)
+    ENQUANTO        reduce using rule 25 (expression -> LPAREN expression RPAREN .)
+    PARA            reduce using rule 25 (expression -> LPAREN expression RPAREN .)
+    IMPRIMIR        reduce using rule 25 (expression -> LPAREN expression RPAREN .)
+    LEIA            reduce using rule 25 (expression -> LPAREN expression RPAREN .)
+    $end            reduce using rule 25 (expression -> LPAREN expression RPAREN .)
+    RBRACE          reduce using rule 25 (expression -> LPAREN expression RPAREN .)
+    RPAREN          reduce using rule 25 (expression -> LPAREN expression RPAREN .)
+    OP_PONTO_VIRGULA reduce using rule 25 (expression -> LPAREN expression RPAREN .)
+
+
+state 67
+
+    (28) statement -> SE LPAREN expression RPAREN LBRACE . statement RBRACE SENAO LBRACE statement RBRACE
+    (29) statement -> SE LPAREN expression RPAREN LBRACE . statement RBRACE
+    (8) statement -> . INTEIRO VARIAVEL
+    (9) statement -> . REAL VARIAVEL
+    (10) statement -> . TEXTO VARIAVEL
+    (11) statement -> . INTEIRO VARIAVEL OP_IGUAL expression
+    (12) statement -> . REAL VARIAVEL OP_IGUAL expression
+    (13) statement -> . TEXTO VARIAVEL OP_IGUAL expression
+    (14) statement -> . VARIAVEL OP_IGUAL expression
+    (28) statement -> . SE LPAREN expression RPAREN LBRACE statement RBRACE SENAO LBRACE statement RBRACE
+    (29) statement -> . SE LPAREN expression RPAREN LBRACE statement RBRACE
+    (30) statement -> . ENQUANTO LPAREN expression RPAREN LBRACE statement RBRACE
+    (31) statement -> . PARA LPAREN expression OP_PONTO_VIRGULA expression OP_PONTO_VIRGULA expression RPAREN LBRACE statement RBRACE
+    (32) statement -> . IMPRIMIR LPAREN literal RPAREN
+    (33) statement -> . LEIA variavel
+
+    INTEIRO         shift and go to state 4
+    REAL            shift and go to state 6
+    TEXTO           shift and go to state 7
+    VARIAVEL        shift and go to state 5
+    SE              shift and go to state 8
+    ENQUANTO        shift and go to state 9
+    PARA            shift and go to state 10
+    IMPRIMIR        shift and go to state 11
+    LEIA            shift and go to state 12
+
+    statement                      shift and go to state 70
+
+state 68
+
+    (30) statement -> ENQUANTO LPAREN expression RPAREN LBRACE . statement RBRACE
+    (8) statement -> . INTEIRO VARIAVEL
+    (9) statement -> . REAL VARIAVEL
+    (10) statement -> . TEXTO VARIAVEL
+    (11) statement -> . INTEIRO VARIAVEL OP_IGUAL expression
+    (12) statement -> . REAL VARIAVEL OP_IGUAL expression
+    (13) statement -> . TEXTO VARIAVEL OP_IGUAL expression
+    (14) statement -> . VARIAVEL OP_IGUAL expression
+    (28) statement -> . SE LPAREN expression RPAREN LBRACE statement RBRACE SENAO LBRACE statement RBRACE
+    (29) statement -> . SE LPAREN expression RPAREN LBRACE statement RBRACE
+    (30) statement -> . ENQUANTO LPAREN expression RPAREN LBRACE statement RBRACE
+    (31) statement -> . PARA LPAREN expression OP_PONTO_VIRGULA expression OP_PONTO_VIRGULA expression RPAREN LBRACE statement RBRACE
+    (32) statement -> . IMPRIMIR LPAREN literal RPAREN
+    (33) statement -> . LEIA variavel
+
+    INTEIRO         shift and go to state 4
+    REAL            shift and go to state 6
+    TEXTO           shift and go to state 7
+    VARIAVEL        shift and go to state 5
+    SE              shift and go to state 8
+    ENQUANTO        shift and go to state 9
+    PARA            shift and go to state 10
+    IMPRIMIR        shift and go to state 11
+    LEIA            shift and go to state 12
+
+    statement                      shift and go to state 71
+
+state 69
+
+    (31) statement -> PARA LPAREN expression OP_PONTO_VIRGULA expression . OP_PONTO_VIRGULA expression RPAREN LBRACE statement RBRACE
+    (15) expression -> expression . OP_SOMA expression
+    (16) expression -> expression . OP_SUB expression
+    (17) expression -> expression . OP_MULT expression
+    (18) expression -> expression . OP_DIV expression
+    (19) expression -> expression . MAIOR expression
+    (20) expression -> expression . MENOR expression
+    (21) expression -> expression . MAIORIGUAL expression
+    (22) expression -> expression . MENORIGUAL expression
+    (23) expression -> expression . OP_IGUALDADE expression
+    (24) expression -> expression . OP_DIFERENTE expression
+
+    OP_PONTO_VIRGULA shift and go to state 72
+    OP_SOMA         shift and go to state 39
+    OP_SUB          shift and go to state 40
+    OP_MULT         shift and go to state 41
+    OP_DIV          shift and go to state 42
+    MAIOR           shift and go to state 43
+    MENOR           shift and go to state 44
+    MAIORIGUAL      shift and go to state 45
+    MENORIGUAL      shift and go to state 46
+    OP_IGUALDADE    shift and go to state 47
+    OP_DIFERENTE    shift and go to state 48
+
+
+state 70
+
+    (28) statement -> SE LPAREN expression RPAREN LBRACE statement . RBRACE SENAO LBRACE statement RBRACE
+    (29) statement -> SE LPAREN expression RPAREN LBRACE statement . RBRACE
+
+    RBRACE          shift and go to state 73
+
+
+state 71
+
+    (30) statement -> ENQUANTO LPAREN expression RPAREN LBRACE statement . RBRACE
+
+    RBRACE          shift and go to state 74
+
+
+state 72
+
+    (31) statement -> PARA LPAREN expression OP_PONTO_VIRGULA expression OP_PONTO_VIRGULA . expression RPAREN LBRACE statement RBRACE
+    (15) expression -> . expression OP_SOMA expression
+    (16) expression -> . expression OP_SUB expression
+    (17) expression -> . expression OP_MULT expression
+    (18) expression -> . expression OP_DIV expression
+    (19) expression -> . expression MAIOR expression
+    (20) expression -> . expression MENOR expression
+    (21) expression -> . expression MAIORIGUAL expression
+    (22) expression -> . expression MENORIGUAL expression
+    (23) expression -> . expression OP_IGUALDADE expression
+    (24) expression -> . expression OP_DIFERENTE expression
+    (25) expression -> . LPAREN expression RPAREN
+    (26) expression -> . NUMERO
+    (27) expression -> . VARIAVEL
+
+    LPAREN          shift and go to state 27
+    NUMERO          shift and go to state 28
+    VARIAVEL        shift and go to state 25
+
+    expression                     shift and go to state 75
+
+state 73
+
+    (28) statement -> SE LPAREN expression RPAREN LBRACE statement RBRACE . SENAO LBRACE statement RBRACE
+    (29) statement -> SE LPAREN expression RPAREN LBRACE statement RBRACE .
+
+    SENAO           shift and go to state 76
+    INTEIRO         reduce using rule 29 (statement -> SE LPAREN expression RPAREN LBRACE statement RBRACE .)
+    REAL            reduce using rule 29 (statement -> SE LPAREN expression RPAREN LBRACE statement RBRACE .)
+    TEXTO           reduce using rule 29 (statement -> SE LPAREN expression RPAREN LBRACE statement RBRACE .)
+    VARIAVEL        reduce using rule 29 (statement -> SE LPAREN expression RPAREN LBRACE statement RBRACE .)
+    SE              reduce using rule 29 (statement -> SE LPAREN expression RPAREN LBRACE statement RBRACE .)
+    ENQUANTO        reduce using rule 29 (statement -> SE LPAREN expression RPAREN LBRACE statement RBRACE .)
+    PARA            reduce using rule 29 (statement -> SE LPAREN expression RPAREN LBRACE statement RBRACE .)
+    IMPRIMIR        reduce using rule 29 (statement -> SE LPAREN expression RPAREN LBRACE statement RBRACE .)
+    LEIA            reduce using rule 29 (statement -> SE LPAREN expression RPAREN LBRACE statement RBRACE .)
+    $end            reduce using rule 29 (statement -> SE LPAREN expression RPAREN LBRACE statement RBRACE .)
+    RBRACE          reduce using rule 29 (statement -> SE LPAREN expression RPAREN LBRACE statement RBRACE .)
+
+
+state 74
+
+    (30) statement -> ENQUANTO LPAREN expression RPAREN LBRACE statement RBRACE .
+
+    INTEIRO         reduce using rule 30 (statement -> ENQUANTO LPAREN expression RPAREN LBRACE statement RBRACE .)
+    REAL            reduce using rule 30 (statement -> ENQUANTO LPAREN expression RPAREN LBRACE statement RBRACE .)
+    TEXTO           reduce using rule 30 (statement -> ENQUANTO LPAREN expression RPAREN LBRACE statement RBRACE .)
+    VARIAVEL        reduce using rule 30 (statement -> ENQUANTO LPAREN expression RPAREN LBRACE statement RBRACE .)
+    SE              reduce using rule 30 (statement -> ENQUANTO LPAREN expression RPAREN LBRACE statement RBRACE .)
+    ENQUANTO        reduce using rule 30 (statement -> ENQUANTO LPAREN expression RPAREN LBRACE statement RBRACE .)
+    PARA            reduce using rule 30 (statement -> ENQUANTO LPAREN expression RPAREN LBRACE statement RBRACE .)
+    IMPRIMIR        reduce using rule 30 (statement -> ENQUANTO LPAREN expression RPAREN LBRACE statement RBRACE .)
+    LEIA            reduce using rule 30 (statement -> ENQUANTO LPAREN expression RPAREN LBRACE statement RBRACE .)
+    $end            reduce using rule 30 (statement -> ENQUANTO LPAREN expression RPAREN LBRACE statement RBRACE .)
+    RBRACE          reduce using rule 30 (statement -> ENQUANTO LPAREN expression RPAREN LBRACE statement RBRACE .)
+
+
+state 75
+
+    (31) statement -> PARA LPAREN expression OP_PONTO_VIRGULA expression OP_PONTO_VIRGULA expression . RPAREN LBRACE statement RBRACE
+    (15) expression -> expression . OP_SOMA expression
+    (16) expression -> expression . OP_SUB expression
+    (17) expression -> expression . OP_MULT expression
+    (18) expression -> expression . OP_DIV expression
+    (19) expression -> expression . MAIOR expression
+    (20) expression -> expression . MENOR expression
+    (21) expression -> expression . MAIORIGUAL expression
+    (22) expression -> expression . MENORIGUAL expression
+    (23) expression -> expression . OP_IGUALDADE expression
+    (24) expression -> expression . OP_DIFERENTE expression
+
+    RPAREN          shift and go to state 77
+    OP_SOMA         shift and go to state 39
+    OP_SUB          shift and go to state 40
+    OP_MULT         shift and go to state 41
+    OP_DIV          shift and go to state 42
+    MAIOR           shift and go to state 43
+    MENOR           shift and go to state 44
+    MAIORIGUAL      shift and go to state 45
+    MENORIGUAL      shift and go to state 46
+    OP_IGUALDADE    shift and go to state 47
+    OP_DIFERENTE    shift and go to state 48
+
+
+state 76
+
+    (28) statement -> SE LPAREN expression RPAREN LBRACE statement RBRACE SENAO . LBRACE statement RBRACE
+
+    LBRACE          shift and go to state 78
+
+
+state 77
+
+    (31) statement -> PARA LPAREN expression OP_PONTO_VIRGULA expression OP_PONTO_VIRGULA expression RPAREN . LBRACE statement RBRACE
+
+    LBRACE          shift and go to state 79
+
+
+state 78
+
+    (28) statement -> SE LPAREN expression RPAREN LBRACE statement RBRACE SENAO LBRACE . statement RBRACE
+    (8) statement -> . INTEIRO VARIAVEL
+    (9) statement -> . REAL VARIAVEL
+    (10) statement -> . TEXTO VARIAVEL
+    (11) statement -> . INTEIRO VARIAVEL OP_IGUAL expression
+    (12) statement -> . REAL VARIAVEL OP_IGUAL expression
+    (13) statement -> . TEXTO VARIAVEL OP_IGUAL expression
+    (14) statement -> . VARIAVEL OP_IGUAL expression
+    (28) statement -> . SE LPAREN expression RPAREN LBRACE statement RBRACE SENAO LBRACE statement RBRACE
+    (29) statement -> . SE LPAREN expression RPAREN LBRACE statement RBRACE
+    (30) statement -> . ENQUANTO LPAREN expression RPAREN LBRACE statement RBRACE
+    (31) statement -> . PARA LPAREN expression OP_PONTO_VIRGULA expression OP_PONTO_VIRGULA expression RPAREN LBRACE statement RBRACE
+    (32) statement -> . IMPRIMIR LPAREN literal RPAREN
+    (33) statement -> . LEIA variavel
+
+    INTEIRO         shift and go to state 4
+    REAL            shift and go to state 6
+    TEXTO           shift and go to state 7
+    VARIAVEL        shift and go to state 5
+    SE              shift and go to state 8
+    ENQUANTO        shift and go to state 9
+    PARA            shift and go to state 10
+    IMPRIMIR        shift and go to state 11
+    LEIA            shift and go to state 12
+
+    statement                      shift and go to state 80
+
+state 79
+
+    (31) statement -> PARA LPAREN expression OP_PONTO_VIRGULA expression OP_PONTO_VIRGULA expression RPAREN LBRACE . statement RBRACE
+    (8) statement -> . INTEIRO VARIAVEL
+    (9) statement -> . REAL VARIAVEL
+    (10) statement -> . TEXTO VARIAVEL
+    (11) statement -> . INTEIRO VARIAVEL OP_IGUAL expression
+    (12) statement -> . REAL VARIAVEL OP_IGUAL expression
+    (13) statement -> . TEXTO VARIAVEL OP_IGUAL expression
+    (14) statement -> . VARIAVEL OP_IGUAL expression
+    (28) statement -> . SE LPAREN expression RPAREN LBRACE statement RBRACE SENAO LBRACE statement RBRACE
+    (29) statement -> . SE LPAREN expression RPAREN LBRACE statement RBRACE
+    (30) statement -> . ENQUANTO LPAREN expression RPAREN LBRACE statement RBRACE
+    (31) statement -> . PARA LPAREN expression OP_PONTO_VIRGULA expression OP_PONTO_VIRGULA expression RPAREN LBRACE statement RBRACE
+    (32) statement -> . IMPRIMIR LPAREN literal RPAREN
+    (33) statement -> . LEIA variavel
+
+    INTEIRO         shift and go to state 4
+    REAL            shift and go to state 6
+    TEXTO           shift and go to state 7
+    VARIAVEL        shift and go to state 5
+    SE              shift and go to state 8
+    ENQUANTO        shift and go to state 9
+    PARA            shift and go to state 10
+    IMPRIMIR        shift and go to state 11
+    LEIA            shift and go to state 12
+
+    statement                      shift and go to state 81
+
+state 80
+
+    (28) statement -> SE LPAREN expression RPAREN LBRACE statement RBRACE SENAO LBRACE statement . RBRACE
+
+    RBRACE          shift and go to state 82
+
+
+state 81
+
+    (31) statement -> PARA LPAREN expression OP_PONTO_VIRGULA expression OP_PONTO_VIRGULA expression RPAREN LBRACE statement . RBRACE
+
+    RBRACE          shift and go to state 83
+
+
+state 82
+
+    (28) statement -> SE LPAREN expression RPAREN LBRACE statement RBRACE SENAO LBRACE statement RBRACE .
+
+    INTEIRO         reduce using rule 28 (statement -> SE LPAREN expression RPAREN LBRACE statement RBRACE SENAO LBRACE statement RBRACE .)
+    REAL            reduce using rule 28 (statement -> SE LPAREN expression RPAREN LBRACE statement RBRACE SENAO LBRACE statement RBRACE .)
+    TEXTO           reduce using rule 28 (statement -> SE LPAREN expression RPAREN LBRACE statement RBRACE SENAO LBRACE statement RBRACE .)
+    VARIAVEL        reduce using rule 28 (statement -> SE LPAREN expression RPAREN LBRACE statement RBRACE SENAO LBRACE statement RBRACE .)
+    SE              reduce using rule 28 (statement -> SE LPAREN expression RPAREN LBRACE statement RBRACE SENAO LBRACE statement RBRACE .)
+    ENQUANTO        reduce using rule 28 (statement -> SE LPAREN expression RPAREN LBRACE statement RBRACE SENAO LBRACE statement RBRACE .)
+    PARA            reduce using rule 28 (statement -> SE LPAREN expression RPAREN LBRACE statement RBRACE SENAO LBRACE statement RBRACE .)
+    IMPRIMIR        reduce using rule 28 (statement -> SE LPAREN expression RPAREN LBRACE statement RBRACE SENAO LBRACE statement RBRACE .)
+    LEIA            reduce using rule 28 (statement -> SE LPAREN expression RPAREN LBRACE statement RBRACE SENAO LBRACE statement RBRACE .)
+    $end            reduce using rule 28 (statement -> SE LPAREN expression RPAREN LBRACE statement RBRACE SENAO LBRACE statement RBRACE .)
+    RBRACE          reduce using rule 28 (statement -> SE LPAREN expression RPAREN LBRACE statement RBRACE SENAO LBRACE statement RBRACE .)
+
+
+state 83
+
+    (31) statement -> PARA LPAREN expression OP_PONTO_VIRGULA expression OP_PONTO_VIRGULA expression RPAREN LBRACE statement RBRACE .
+
+    INTEIRO         reduce using rule 31 (statement -> PARA LPAREN expression OP_PONTO_VIRGULA expression OP_PONTO_VIRGULA expression RPAREN LBRACE statement RBRACE .)
+    REAL            reduce using rule 31 (statement -> PARA LPAREN expression OP_PONTO_VIRGULA expression OP_PONTO_VIRGULA expression RPAREN LBRACE statement RBRACE .)
+    TEXTO           reduce using rule 31 (statement -> PARA LPAREN expression OP_PONTO_VIRGULA expression OP_PONTO_VIRGULA expression RPAREN LBRACE statement RBRACE .)
+    VARIAVEL        reduce using rule 31 (statement -> PARA LPAREN expression OP_PONTO_VIRGULA expression OP_PONTO_VIRGULA expression RPAREN LBRACE statement RBRACE .)
+    SE              reduce using rule 31 (statement -> PARA LPAREN expression OP_PONTO_VIRGULA expression OP_PONTO_VIRGULA expression RPAREN LBRACE statement RBRACE .)
+    ENQUANTO        reduce using rule 31 (statement -> PARA LPAREN expression OP_PONTO_VIRGULA expression OP_PONTO_VIRGULA expression RPAREN LBRACE statement RBRACE .)
+    PARA            reduce using rule 31 (statement -> PARA LPAREN expression OP_PONTO_VIRGULA expression OP_PONTO_VIRGULA expression RPAREN LBRACE statement RBRACE .)
+    IMPRIMIR        reduce using rule 31 (statement -> PARA LPAREN expression OP_PONTO_VIRGULA expression OP_PONTO_VIRGULA expression RPAREN LBRACE statement RBRACE .)
+    LEIA            reduce using rule 31 (statement -> PARA LPAREN expression OP_PONTO_VIRGULA expression OP_PONTO_VIRGULA expression RPAREN LBRACE statement RBRACE .)
+    $end            reduce using rule 31 (statement -> PARA LPAREN expression OP_PONTO_VIRGULA expression OP_PONTO_VIRGULA expression RPAREN LBRACE statement RBRACE .)
+    RBRACE          reduce using rule 31 (statement -> PARA LPAREN expression OP_PONTO_VIRGULA expression OP_PONTO_VIRGULA expression RPAREN LBRACE statement RBRACE .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for OP_SOMA in state 60 resolved as shift
+WARNING: shift/reduce conflict for OP_SUB in state 60 resolved as shift
+WARNING: shift/reduce conflict for OP_MULT in state 60 resolved as shift
+WARNING: shift/reduce conflict for OP_DIV in state 60 resolved as shift
+WARNING: shift/reduce conflict for MAIOR in state 60 resolved as shift
+WARNING: shift/reduce conflict for MENOR in state 60 resolved as shift
+WARNING: shift/reduce conflict for MAIORIGUAL in state 60 resolved as shift
+WARNING: shift/reduce conflict for MENORIGUAL in state 60 resolved as shift
+WARNING: shift/reduce conflict for OP_IGUALDADE in state 60 resolved as shift
+WARNING: shift/reduce conflict for OP_DIFERENTE in state 60 resolved as shift
+WARNING: shift/reduce conflict for OP_SOMA in state 61 resolved as shift
+WARNING: shift/reduce conflict for OP_SUB in state 61 resolved as shift
+WARNING: shift/reduce conflict for OP_MULT in state 61 resolved as shift
+WARNING: shift/reduce conflict for OP_DIV in state 61 resolved as shift
+WARNING: shift/reduce conflict for MAIOR in state 61 resolved as shift
+WARNING: shift/reduce conflict for MENOR in state 61 resolved as shift
+WARNING: shift/reduce conflict for MAIORIGUAL in state 61 resolved as shift
+WARNING: shift/reduce conflict for MENORIGUAL in state 61 resolved as shift
+WARNING: shift/reduce conflict for OP_IGUALDADE in state 61 resolved as shift
+WARNING: shift/reduce conflict for OP_DIFERENTE in state 61 resolved as shift
+WARNING: shift/reduce conflict for OP_SOMA in state 62 resolved as shift
+WARNING: shift/reduce conflict for OP_SUB in state 62 resolved as shift
+WARNING: shift/reduce conflict for OP_MULT in state 62 resolved as shift
+WARNING: shift/reduce conflict for OP_DIV in state 62 resolved as shift
+WARNING: shift/reduce conflict for MAIOR in state 62 resolved as shift
+WARNING: shift/reduce conflict for MENOR in state 62 resolved as shift
+WARNING: shift/reduce conflict for MAIORIGUAL in state 62 resolved as shift
+WARNING: shift/reduce conflict for MENORIGUAL in state 62 resolved as shift
+WARNING: shift/reduce conflict for OP_IGUALDADE in state 62 resolved as shift
+WARNING: shift/reduce conflict for OP_DIFERENTE in state 62 resolved as shift
+WARNING: shift/reduce conflict for OP_SOMA in state 63 resolved as shift
+WARNING: shift/reduce conflict for OP_SUB in state 63 resolved as shift
+WARNING: shift/reduce conflict for OP_MULT in state 63 resolved as shift
+WARNING: shift/reduce conflict for OP_DIV in state 63 resolved as shift
+WARNING: shift/reduce conflict for MAIOR in state 63 resolved as shift
+WARNING: shift/reduce conflict for MENOR in state 63 resolved as shift
+WARNING: shift/reduce conflict for MAIORIGUAL in state 63 resolved as shift
+WARNING: shift/reduce conflict for MENORIGUAL in state 63 resolved as shift
+WARNING: shift/reduce conflict for OP_IGUALDADE in state 63 resolved as shift
+WARNING: shift/reduce conflict for OP_DIFERENTE in state 63 resolved as shift
+WARNING: shift/reduce conflict for OP_SOMA in state 64 resolved as shift
+WARNING: shift/reduce conflict for OP_SUB in state 64 resolved as shift
+WARNING: shift/reduce conflict for OP_MULT in state 64 resolved as shift
+WARNING: shift/reduce conflict for OP_DIV in state 64 resolved as shift
+WARNING: shift/reduce conflict for MAIOR in state 64 resolved as shift
+WARNING: shift/reduce conflict for MENOR in state 64 resolved as shift
+WARNING: shift/reduce conflict for MAIORIGUAL in state 64 resolved as shift
+WARNING: shift/reduce conflict for MENORIGUAL in state 64 resolved as shift
+WARNING: shift/reduce conflict for OP_IGUALDADE in state 64 resolved as shift
+WARNING: shift/reduce conflict for OP_DIFERENTE in state 64 resolved as shift
+WARNING: shift/reduce conflict for OP_SOMA in state 65 resolved as shift
+WARNING: shift/reduce conflict for OP_SUB in state 65 resolved as shift
+WARNING: shift/reduce conflict for OP_MULT in state 65 resolved as shift
+WARNING: shift/reduce conflict for OP_DIV in state 65 resolved as shift
+WARNING: shift/reduce conflict for MAIOR in state 65 resolved as shift
+WARNING: shift/reduce conflict for MENOR in state 65 resolved as shift
+WARNING: shift/reduce conflict for MAIORIGUAL in state 65 resolved as shift
+WARNING: shift/reduce conflict for MENORIGUAL in state 65 resolved as shift
+WARNING: shift/reduce conflict for OP_IGUALDADE in state 65 resolved as shift
+WARNING: shift/reduce conflict for OP_DIFERENTE in state 65 resolved as shift
