@@ -51,3 +51,21 @@ SE x > 0 {
 } SENAO {
     IMPRIMIR("Negativo");
 }
+
+exemplo de código :
+inteiro x = 10
+se (x == 10) {
+imprimir (x)
+} senao {
+imprimir ("Não é igual a 10")
+}
+
+inteiro x = 10
+enquanto (x < 15) {
+imprimir (x)
+x = x + 1
+}
+
+inteiro x = 10.5
+real y = "texto"
+texto z = 10
