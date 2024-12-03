@@ -7,11 +7,11 @@ https://youtu.be/OQb7Jp_h-gw
 ---
 
 ## 📋 Componentes do Grupo
-- **Henrique Rocha** - RA: 12722117519  
-- **Marcos Vinicius** - RA: 12723116626  
-- **Pedro Martins** - RA: 12722124034  
-- **Rafael Rodrigues** - RA: 12722130532  
-- **Sérgio Filho** - RA: 1272215886  
+- **Henrique Cavalcanti Rocha** - RA: 12722117519  
+- **Marcos Vinicius Lima Ribeiro** - RA: 12723116626  
+- **Pedro Martins Caires** - RA: 12722124034  
+- **Rafael Rodrigues Figueiredo** - RA: 12722130532  
+- **Sérgio Filho de Paula Fidelis** - RA: 1272215886  
 
 ---
 
